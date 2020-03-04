@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //数组的定义：
+
+        //1.通过构造函数的方式定义一个数组：
+        var arr = new Array();//没有数据，空数组
+        console.log(arr);//f12打开后会显示一个空的数组，第二次刷新后会以字面量的方式显示为空数组
+
+        var arr2 = new Array(3);//定义了一个长度为3的数组(如果数组有长度，没有数据，数组中的每个值就是undefined)
+        console.log(arr2);//刷新两次后可以看到[empty*5]
+
+
+        //2.以字面量的方式创建数组：
+        var arr3 = [];
+        console.log(arr3);
+        //两次刷新后查看区别
+        var arr4 = [1, 2222, 100, 5555];
+        console.log(arr4);
+        //求数组长度
+        console.log(arr4.length);
+    </script>
+</body>
+
+</html>

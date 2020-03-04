@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //了解：
+        // 1.在定义函数的时候：函数名起名为------>set:设置的意思；get:获取的意思
+        // 2.如果函数有返回值，需要这个返回值，则需要定义变量接收
+
+
+        //有参数，有返回值的函数
+        function getSum(x, y) {
+            var sum = x + y;
+            //返回值
+            return sum;
+        }
+
+
+
+        //要是直接调用函数，是没有任何结果的，所以返回值需要接收才有用
+        getSum(10, 20);
+        //接收返回值并调用函数
+        var result = getSum(10, 20);
+        console.log(result + 10);
+
+
+
+
+
+        //这个是调用函数，并打印返回值，所有不用接收返回值也可以输出
+        console.log(getSum(1, 1));
+    </script>
+</body>
+
+</html>

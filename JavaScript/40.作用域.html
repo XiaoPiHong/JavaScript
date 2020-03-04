@@ -1,0 +1,85 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-01 10:46:42
+ * @LastEditTime: 2020-03-01 11:30:19
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\40.作用域.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //作用域：作用的范围
+        /*
+        全局变量：除了函数内定义的变量，其他的任何位置定义的变量都是全局变量（如果页面不关闭，那么就不会释放，
+        就会占空间，消耗内存）
+
+        局部变量：在函数内部定义的变量，是局部变量(外边不能使用)
+
+        隐式全局变量：声明的变量没用var，就叫隐式全局变量（全局变量是不可以被删除的，但是隐式全局变量是可以被
+        删除的，即：定义变量使用var是不会被删除的，没用var是可以删除的）
+
+
+
+
+
+
+        全局作用域：全局变量的使用范围
+
+        局部作用域：局部变量的使用范围
+
+        块级作用域：一对大括号就可以看成是一块，在这块区域中定义的变量，只能在这个区域中使用，但是js
+        中在这个块级作用域中定义的变量，外面也能使用。
+        说明：js中是没用块级作用域的
+        */
+    </script>
+
+
+
+    <script>
+        //这个是全局变量，其他script标签也可以使用
+        var num = 10;
+    </script>
+    <script>
+        console.log(num);
+    </script>
+    <script>
+        //变量释放例子：
+        function f1() {
+            var num = 1;
+            for (var i = 1; i < 5; i++) {
+                num++
+            }
+        }
+        //在这个函数中的变量是局部变量，函数调用完了，就会被释放，不会占内存
+        f1();
+
+
+
+        //隐式全局变量例子:
+        function f2() {
+            num2 = 20;
+        }
+        f2();
+        console.log(num2);
+
+
+        //num3删除不了,所有是number
+        var num3 = 30;
+        delete num3;
+        console.log(typeof num3);
+        //num2被删除了，所有是undefined
+        delete num2;
+        console.log(typeof num2);
+    </script>
+</body>
+
+</html>

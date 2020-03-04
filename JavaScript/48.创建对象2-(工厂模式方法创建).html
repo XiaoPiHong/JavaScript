@@ -1,0 +1,64 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-02 14:38:02
+ * @LastEditTime: 2020-03-02 21:42:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\48.创建对象2-(工厂模式方法创建).html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        如何获取该变量(对象)是不是属于什么类型的?
+        语法:
+        变量 instanceof 类型的名字----->布尔类型,true就是这种类型,false不是这种类型
+        */
+
+        var person = new Object();
+        person.name = "小白";
+        person.sayHi = function () {
+            //在当前对象的方法中是可以访问当前这个对象的属性的值
+            console.log("大家好我叫" + person.name);
+            //在当前的对象的方法中, 可以使用this关键字代表当前的对象
+            console.log("大家好再说一次我叫" + this.name);
+        };
+        sayHi();
+
+
+        //判断人这个对象属于什么类型
+        console.log(person instanceof Object);//true
+        //==================================================================================================
+
+
+        //如何一次性创建多个对象？（把创建对象的代码封装在一个函数中）------>工厂模式创建对象
+        function createObject(name, age) {
+            var obj = new Object();
+            //添加属性
+            obj.name = name;//前面的name是属性，后面的name是变量
+            obj.age = age;
+            //添加方法
+            obj.sayHi = function () {
+                console.log("大家好我叫" + this.name + "我今年" + this.age + "岁");
+            };
+            return obj;
+        }
+
+        //创建人的对象
+        var per1 = createObject("小花", 11);
+        per1.sayHi();
+
+        var per1 = createObject("小周", 21);
+        per1.sayHi();
+    </script>
+</body>
+
+</html>

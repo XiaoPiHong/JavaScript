@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*js中的原始数据类型：number、string、boolen、null、undefined、object
+        1.number：数字类型（整数和小数）
+        2.string:字符串类型(的值一般都是用单引号或者是双引号括起来)  "34"
+        3.boolean:布尔类型(值只有两个,true(真1),false(假0))
+        4.null:空类型,值只有一个:null,一个对象指向为空了,此时可以赋值为null
+        5.undefined:未定义,值只有一个:undefined
+        什么情况下的结果是undefined
+        变量声明了,没有赋,值结果是undefined
+        函数没有明确返回值,如果接收了,结果也是undefined
+        如果一个变量的结果是undefined和一个数字进行计算,结果:NaN(不是一个数字,也没有意义)，例子在下方
+        6.object:对象
+        */
+    </script>
+    <script>
+        //下面结果都为NaN
+        var num;
+        console.log(num + 10);
+
+        var num1 = '我是';
+        console.log(num1 - 10);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-01 15:17:41
+ * @LastEditTime: 2020-03-01 15:53:55
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\44.预解析案例.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 案例1
+        /*var a = 25;
+        function abc() {
+            alert(a);//undefine
+            var a = 10;
+        }
+        abc();
+        console.log(a);//25
+        */
+
+
+
+
+
+        // 案例2
+        /*
+         console.log(a);//函数代码
+        function a() {
+            console.log('aaaaa');
+        }
+        var a = 1;
+        console.log(a);//1
+
+        上面预解析后变成：
+        var a;
+        function a() {
+            console.log('aaaaa');
+        }
+        console.log(a);
+        a = 1;
+        console.log(a);
+        */
+
+
+
+
+
+
+        //案例3
+        /*
+         var a = 18;
+        f1();
+        function f1() {
+            var b = 9;
+            console.log(a);//undefined
+            console.log(b);//9
+            var a = '123';
+        }
+
+        上面预解析后变成：
+        var a;
+        a = 18;
+        function f1() {
+            var b;
+            var a;
+            b = 9;
+            console.log(a);//undefined
+            console.log(b);//9
+            a = '123';
+        }
+        f1();
+        */
+
+
+
+
+
+
+        // 案例4
+        /*
+        f1();
+        console.log(c);//9
+        console.log(b);//9
+        console.log(a);//报错
+        function f1() {
+            var a = b = c = 9;
+            console.log(a);//9
+            console.log(b);//9
+            console.log(c);//9
+        }
+
+        预解析后变成：
+         function f1() {
+            var a;//局部变量
+            a = 9;//赋值
+            b = 9;//隐式全局变量
+            c = 9//隐式全局变量
+            console.log(a);//9
+            console.log(b);//9
+            console.log(c);//9
+        }
+        f1();
+        console.log(c);//9
+        console.log(b);//9
+        console.log(a);//报错
+        */
+
+
+
+
+
+
+        // 案例5
+        /*
+        f1();//直接报错
+        var f1 = function () {
+            console.log('a');
+            var a = 10;
+        }
+
+        预解析后变成：
+        var f1;
+        f1();//报错是因为f1不是一个函数，而是一个未赋值的变量，所以不能调用
+        //下面这是函数的赋值
+        f1 = function () {
+            console.log('a');
+            var a = 10;
+        }
+        */
+    </script>
+</body>
+
+</html>

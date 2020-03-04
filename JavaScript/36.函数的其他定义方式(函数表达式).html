@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-02-29 22:08:06
+ * @LastEditTime: 2020-03-01 10:21:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\36.函数的其他定义方式(函数表达式).html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //命名函数：函数如果有名字函数就是命名函数
+        //匿名函数：函数如果没有名字，函数就是匿名函数
+
+        /*函数的另一种定义方式：
+        函数表达式：
+        把一个函数给一个变量，此时形成了函数表达式
+        */
+
+
+        // 例子：
+        //函数表达式：
+        /*var f1 = function () {
+            console.log("我好帅啊");
+        };
+        f1();*/
+        /*如果是函数表达式,那么此时前面的变量中存储的就是一个函数,而这个变
+        量就相当于是一个函数,就可以直接加小括号调用了*/
+
+
+
+
+
+
+
+        // 注意：
+        //1.函数的声明，如果重名，会被后面的覆盖（与函数表达式不一样）
+        /*function f2() {
+            console.log("1111111111");
+        }
+        f2();
+        function f2() {
+            console.log("2222222222");
+        }
+        f2();*/
+
+        //2.函数表达式，重名是重新给变量赋值的意思
+        var f3 = function () {
+            console.log("11111111111111");
+        };
+        f3();
+        f3 = function () {
+            console.log("22222222222222");
+        };
+        f3();
+
+
+        // 下面的是函数的自调用（没用名字，也是匿名函数---声明的同时直接调用，多个也不会冲突）
+        (function () { console.log("我是函数自调用"); })();
+        (function () { console.log("我是函数自调用2"); })();
+    </script>
+</body>
+
+</html>

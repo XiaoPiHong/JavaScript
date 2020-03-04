@@ -1,0 +1,186 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-02-29 14:04:06
+ * @LastEditTime: 2020-02-29 21:34:12
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\34.函数的例子-2.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.求两个数字的差（要注意的是不要用小数去验证小数）
+        function getSub(x, y) {
+            return x - y;
+        }
+        console.log(getSub(1, 2));
+
+        //2.求一组数字的最大值（用到的形参为数组）
+        function getMax(array) {
+            var max = array[0];
+            for (var i = 0; i < array.length; i++) {
+                if (max < array[i]) {
+                    max = array[i]
+                }
+            }
+            return max;
+        }
+        var arr = [1, 2, 3, 4, 5, 32, 21];
+        console.log(getMax(arr));
+        // 或者直接把数组传到函数中
+        console.log(getMax([1, 2, 3, 4, 5, 32, 21]));
+
+        //3.求一组数字的和
+        function getSum(array) {
+            var sum = 0;
+            for (var i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            return sum;
+        }
+        console.log(getSum([1, 2, 3, 4, 5]));
+
+        //4.求一组数组的最大值最小值还有和
+        //最标准的函数注释方式
+        /**
+         * @description: 求一个数组的最大值最小值还有和
+         * @param {array} 参数是一个数组
+         * @return: [] 返回值是一个数组(第一个元素是最大值，第二个元素是最小值，第三个元素是和)
+         */
+        function getArrayMaxMinSum(array) {
+            var max = array[0];
+            var min = array[0];
+            var sum = 0;
+            for (var i = 0; i < array.length; i++) {
+                if (max < array[i]) {
+                    max = array[i]
+                }
+                if (min > array[i]) {
+                    min = array[i];
+                }
+                sum += array[i];
+            }
+            // 将最大值最小值和装进数组中
+            var arr = [max, min, sum];
+            return arr;
+        }
+        console.log(getArrayMaxMinSum([1, 2, 34, 3]));
+
+        //5.通过函数实现数组反转
+        function reserveArr(arr) {
+            for (var i = 0; i < arr.length / 2; i++) {
+                var temp = arr[i];
+                arr[i] = arr[arr.length - i - 1];
+                arr[arr.length - i - 1] = temp;
+            }
+            return arr;
+        }
+        console.log(reserveArr([1, 2, 3, 4]));
+
+        //6.通过函数数显冒泡排序
+        function sortArray(arr) {
+            //循环控制比较的轮数
+            for (var i = 0; i < arr.length - 1; i++) {
+                //控制每一轮的比较的次数
+                for (var j = 0; j < arr.length - 1 - i; j++) {
+                    if (arr[j] < arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            console.log(sortArray([1, 3, 2, 5]));
+        }
+
+        //7.求一个数字的阶乘
+        function getJieCheng(n) {
+            var res = 1;
+            for (var i = 1; i <= n; i++) {
+                res *= i;
+            }
+            return res;
+        }
+        console.log(getJieCheng(4));
+
+        //8.斐波那契数列
+        function getFib() {
+            var num1 = 1;//第一个月
+            var num2 = 1;//第二个月
+            var sum = 0;
+            //i是从第三个月开始 
+            for (var i = 3; i <= 12; i++) {
+                sum = num1 + num2
+                num1 = num2;
+                num2 = sum;
+            }
+            return sum;
+        }
+        console.log(getFib(12));
+
+
+
+        //9.输入:年月日,获取这个日期是这一年的第多少天
+        //判断这个年份是不是闰年
+        function isLeapYear(year) {
+            return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+        }
+        //年---月---日:2017年4月28日
+        function getDays(year, month, day) {
+            //定义变量存储对应的天数
+            var days = day;
+            //如果用户输入的是一月份,没必要向后算天数,直接返回天数
+            if (month == 1) {
+                return days;
+            }
+            //代码执行到这里-----说明用户输入的不是1月份
+            //用户输入的是7月份23日----1，2，3  +23
+            //定义一个数组,存储每个月份的天数
+            var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            //小于的是输入的月份-1
+            for (var i = 0; i < month - 1; i++) {
+                days += months[i];
+            }
+            //需要判断这个年份是不是闰年(函数里面调用其他函数)
+            if (isLeapYear(year) && month > 2) {
+                days++;
+            }
+            return days;
+        }
+        console.log(getDays(2000, 3, 2));
+
+        //10.求一个数字的阶乘，并且等差为1递减数列，继续阶乘（即4的阶乘+3的阶乘+2的阶乘...）
+        /*function getMix(n) {
+            var res = 1;
+            var temp = 0;
+            for (var j = n; j >= 1; j--) {
+                res = 1;
+                for (var i = j; i >= 1; i--) {
+                    res *= i
+                }
+                temp += res;
+            }
+            return temp;
+        }
+        console.log(getMix(5));*/
+        //调用阶乘的函数实现也可以：
+        function getJieChengSum(n) {
+            var sum = 0;
+            for (var i = 1; i <= n; i++) {
+                sum += getJieCheng(i);
+            }
+            return sum;
+        }
+        console.log(getJieChengSum(5));
+    </script>
+</body>
+
+</html>

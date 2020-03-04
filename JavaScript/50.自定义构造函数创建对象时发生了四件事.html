@@ -1,0 +1,71 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-02 18:57:24
+ * @LastEditTime: 2020-03-02 21:26:15
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\50.自定义构造函数创建对象时发生了四件事.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        自定义构造函数时系统做了4件事情(即new对象的时候)：
+        1. 在内存中开辟(申请一块空闲的空间)空间,存储创建的新的对象
+        2. 把this设置为当前的对象
+        3. 设置对象的属性和方法的值
+        4. 把this这个对象返回
+        */
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHi = function () {
+                console.log("我叫:" + this.name + ",年龄是:" + this.age);
+            };
+        }
+        var obj = new Person("小明", 10);//就是这一步执行完就做了上面4步
+        console.log(obj.name);
+        console.log(obj.age);
+        obj.sayHi();
+
+
+        //通过自定义构造函数实现下面的例子:
+        //创建一个图片的对象,图片有宽,有高,有大小(4M),图片可以展示内容
+        function Picture(width, height, big) {
+            this.width = width;
+            this.height = height;
+            this.big = big;
+            this.showContent = function () {
+                console.log("宽" + this.width + "高" + this.height + "大小" + this.big)
+            };
+        }
+        var pic1 = new Picture("200px", "200px", "2M");
+        pic1.showContent();
+
+        //创建一个小猫的对象,猫有颜色，体重，年龄,小猫可以抓耗子,可以打架
+        function Cat(color, weight, age) {
+            this.color = color;
+            this.weight = weight;
+            this.age = age;
+            this.catchMouse = function () {
+                console.log("捉老鼠");
+            };
+            this.fighting = function () {
+                console.log("打架");
+            };
+        }
+        var cat1 = new Cat("red", 5, 1);
+        cat1.catchMouse();
+        cat1.fighting();
+    </script>
+</body>
+
+</html>

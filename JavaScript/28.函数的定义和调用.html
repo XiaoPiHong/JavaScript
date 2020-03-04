@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        //函数定义
+        function 函数名() {
+
+        }
+        //函数调用
+        函数名();
+        */
+
+
+
+        //例子：
+        function consoleMax() {
+            var x = 10;
+            var y = 20;
+            var z = 30;
+            var max = x > y ? (x > z ? x : z) : (y > z ? y : z);//嵌套的三元表达式
+            console.log(max);
+        }
+        consoleMax();
+
+
+        //输出函数的名字会输出这个函数的代码
+        console.log(consoleMax);
+
+
+
+
+        //函数的注意问题:
+        //函数需要先定义,然后才能使用
+        //函数名字:要遵循驼峰命名法
+        //函数一旦重名,后面的会把前面的函数覆盖
+        //Ctrl +鼠标左键---->转到定义
+        //一个函数最好就是一个功能
+    </script>
+</body>
+
+</html>

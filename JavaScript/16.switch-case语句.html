@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        * switch-case语句---分支语句---多分支语句
+        * 语法:
+        * switch(表达式){
+        *  case 值1:代码1;break;
+        *  case 值2:代码2;break;
+        *  case 值3:代码3;break;
+        *  case 值4:代码4;break;
+        *  ...多个case
+        *  default:代码5;
+        * }
+        *
+        * 注意问题:
+        * default后面的break是可以省略的
+        * default也可以省略
+        * switch-case 语句中和case后面的值比较的时候使用的是严格的模式
+        * 
+        *
+        *
+        * 执行过程:
+        * 获取表达式的值,和值1比较,如果一样,则执行代码1,遇到break则跳出整个的语句,后面代码不执行
+        * 如果表达式的值和值1不一样,则和值2比较,如果相同则执行代码2,遇到break则跳出
+        * 否则和值3比较,相同则执行代码3,遇到break,跳出,否则和值4比较,相同则执行代码4,遇到break则跳出,否则直接执行代码5
+        *
+        * */
+        var score = 'A';
+        switch (score) {
+            case 'A':
+                console.log('90到100之间');
+                break;
+            case 'B':
+                console.log('80到90之间');
+                break;
+            case 'C':
+                break;
+                console.log('70到80之间');
+            case 'D':
+                break;
+                console.log('60到70之间');
+            default:
+                console.log('0到59之间');
+        }
+        // 如果有多个分支, 是针对范围的判断一般选择if-else if的语句
+        // 如果有多个分支, 是针对具体的值判断, 一般选择用switch - case语句
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-02-29 21:45:04
+ * @LastEditTime: 2020-02-29 21:55:35
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\35.arguments对象伪数组.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //arguments--->数组使用---->伪数组
+
+
+        function f1() {
+            console.log(arguments.length);//获取函数调用的时候，传入了几个参数
+            console.log(arguments);//使用arguments对象可以获取传入的每个参数的值
+        }
+
+        f1(10, 20, 30, 40);
+
+        // atguments对象用法的例子（若要计算用户传入数字的和，但是不知道用户传了多少个数）：
+        function getSum() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        console.log(getSum(10, 20));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-02 14:02:25
+ * @LastEditTime: 2020-03-02 15:18:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\47.创建对象.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        创建对象三种属性：
+        1.调用系统的构造函数创建对象
+        var 变量名 = new Object();  Object是系统的构造函数
+
+        2.自定义构造函数创建对象（结合第一种和需求通过工厂模式创建对象）
+
+
+        3.字面量的方式创建对象
+        */
+
+
+
+
+
+        // 例子：
+        // 1.创建对象并实例化
+        var obj = new Object();
+
+
+        //对象有特征---->属性和行为---->方法
+        //2.添加属性---如何添加属性？:   对象.名字=值;
+        obj.name = "我";
+        obj.age = "21";
+        //3.添加方法---如何添加方法？：   对象.名字=函数;
+        obj.cook = function () {
+            console.log("洗菜");
+            console.log("炒菜");
+        };
+
+
+
+
+        //4.获取并输出
+        console.log(obj.name);
+        //方法的调用
+        obj.cook();
+    </script>
+</body>
+
+</html>

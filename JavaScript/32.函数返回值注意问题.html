@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.如果一个函数中有return, 那么这个函数就有返回值
+
+        // 2.如果一个函数中没有return, 那么这个函数就没有返回值
+
+        /*3.如果一个函数中没有明确的返回值, 那么调用的时候接收了, 结果就是undefined
+        (没有明确返回值: 函数中没有return;函数中有return, 但是return后面没有任何内容)*/
+        function f1(x) {
+            console.log("我很帅");
+        }
+        var result1 = f1(10);
+        console.log(result1);//undefined
+
+        function f2(x) {
+            console.log("我很帅");
+            return;
+        }
+        var result2 = f2(10);
+        console.log(result2);//undefined
+
+        //4.函数里变量声明了, 没有赋值, 结果也是undefined
+        function f3(x, y) {
+            console.log("我很帅");
+            return y;
+        }
+        var result3 = f3(10);
+        console.log(result3);//undefined
+
+        //4.函数里变量声明了, 没有赋值, 结果也是undefined，而且在返回值中用了未赋值的参数，就变成了NaN
+        function f4(x, y) {
+            console.log("我很帅");
+            return x + y;
+        }
+        var result4 = f4(10);
+        console.log(result4);//NaN
+
+        // 形参的个数和实参的个数可以不一致
+        function f5(x, y) {
+            console.log("我很帅");
+            return x;
+        }
+        var result5 = f5(10);
+        console.log(result5);
+
+        // return 下面的代码是不会执行的
+        function f6(x) {
+            console.log("我很帅a");
+            return x;
+            console.log("我超帅");
+        }
+        var result6 = f6(111111);
+        console.log(result6);
+    </script>
+</body>
+
+</html>

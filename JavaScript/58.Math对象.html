@@ -1,0 +1,65 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-03 12:25:31
+ * @LastEditTime: 2020-03-03 13:39:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\58.Math对象.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //实例对象:通过构造函数创建出来,实例化的对象
+        //静态对象:不需要创建,直接就是一个对象,方法(静态方法)直接通过这个对象名字调用,
+        //实例方法必须通过实例对象调用
+        //静态方法必须通过大写的对象调用
+
+
+        //Math.PI----π
+        //Math.E----常数的底数,即e
+        //Math.abs(值)-----绝对值
+        //Math.ceil(值)----向上取整
+        //Math.floor(值)---向下取整
+        //Math.max(数1,数2,数3...)---求一组数的最大值
+        //Math.min(数1,数2,数3...)---求一组数的最小值
+        //Math.pow(数1,数2)---求数1 的 数2次方
+        //Math.sqrt(数1)---求数1的平方根
+        //Math.random()---随机产生一个(0,1)的随机数
+
+
+
+
+
+        // 例子：
+        console.log(Math.abs('-1'));//1
+        console.log(Math.abs(-2));//2
+        console.log(Math.abs(null));//0  重点
+        console.log(Math.abs("string"));//NaN
+
+        console.log(Math.ceil(-5.1));//-5
+
+        console.log(Math.floor(-5.1));//-6
+
+        console.log(Math.max(1, 22, 33, 44, 1, 2424, 55));//2424
+
+        console.log(Math.min(1, 22, 33, 44, 1, 2424, 55));//1
+
+        console.log(Math.pow(2, 2));//4
+
+        console.log(Math.sqrt(4));//2
+
+        console.log(Math.random()); //(0,1)随机数
+
+        console.log(parseInt(Math.random() * 100 + 1))//随机产生一个(0-100)的数
+    </script>
+</body>
+
+</html>

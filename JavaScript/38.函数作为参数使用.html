@@ -1,0 +1,37 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-01 10:27:36
+ * @LastEditTime: 2020-03-01 10:37:11
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\38.函数作为参数使用.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*结论：函数可以作为参数使用，如果一个函数作为参数，那么我们说这个参数(函数)叫做回调函数（
+        只要看到一个函数作为参数使用了，那就是回调函数）*/
+
+
+        //函数声明，fn是变量，fn是参数
+        function f2(fn) {
+            fn();//fn这个变量中存储的是一个函数
+        }
+
+        function f1() {
+            console.log("我好帅啊");
+        }
+        //这个f1是参数，装的是f1这个函数的代码
+        f2(f1);
+    </script>
+</body>
+
+</html>

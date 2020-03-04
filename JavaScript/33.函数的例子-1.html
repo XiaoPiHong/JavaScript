@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //求两个数字的和（获取任意两个数字的和）
+        function getSum(x, y) {
+            return x + y;
+        }
+        console.log(getSum(10, 20));
+
+        //求1-100之间所有的数字的和
+        function geteverySum() {
+            var sum = 0;
+            for (var i = 1; i <= 100; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(geteverySum());
+
+        //求1-n之间所有数的和
+        function getanySum(n) {
+            var sum = 0;
+            for (var i = 1; i <= n; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(getanySum(10));
+
+        //求n - m之间所有数的和
+        function getsomeSum(n, m) {
+            var sum = 0;
+            for (var i = n; i <= m; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(getsomeSum(1, 2));
+
+        //求圆的面积
+        function circleArea(r) {
+            return Math.PI * r * r;
+        }
+        console.log(circleArea(10));
+
+        //求2个数中的最大值
+        function getMax(n, m) {
+            n = parseInt(prompt("请输入第一个数"));
+            m = parseInt(prompt("请输入第二个数"));
+            var max = 0;
+            if (m > n || m == n) {
+                max = m
+            } else {
+                max = n
+            }
+            return max;
+        }
+        var result = getMax();
+        alert('最大值为：' + result);
+
+        //求3个数中的最大值
+        function getthreeMax(x, y, z) {
+            var max = 0;
+            if (x > y) {
+                if (x > z) {
+                    max = x
+                } else {
+                    max = z
+                }
+            } else {
+                if (y > z) {
+                    max = y
+                } else {
+                    max = z
+                }
+            }
+            return max;
+        }
+        console.log(getthreeMax(2, 2, -5));
+
+        //判断一个数是否是素数(质数)
+        function check(n) {
+            var str = "";
+            n = parseInt(prompt("请输入一个正整数"));
+            var sum = 0;
+            for (var i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    sum++;
+                }
+            }
+            if (sum == 2) {
+                str = "是一个质数";
+            } else {
+                str = "不是一个质数";
+            }
+            return str;
+        }
+        console.log(check(3));
+
+        //判断一个数是否是素数(质数)------->简便的方法
+        // function isPrimeNumber(n) {
+        //     for (var i = 2; i <= n / 2; i++) {  //i<=n/2的意思是只要测试一半就行，不用测试每个数都取余
+        //         if (n % i == 0) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // console.log(isPrimeNumber(11));
+    </script>
+</body>
+
+</html>

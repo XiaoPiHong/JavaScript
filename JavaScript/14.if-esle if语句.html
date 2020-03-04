@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //if语句只有一个分支
+        //if-else语句有两个分支,最终执行一个分支
+        //if-else if-else if-else if-else if..........else---多分支,最终也是执行一个
+
+        /*
+         *
+         * if-else if语句...
+         *
+         * 语法:
+         * if(表达式1){
+         *   代码1
+         * }else if(表达式2){
+         *   代码2
+         * }else if(表达式3){
+         *   代码3
+         * }else{
+         *   代码4
+         * }
+         *
+         * else if---这种结构可以写多个,具体多少个看需求,
+         * else--结构是可以不用写的,具体也是看需求
+         *
+         *
+         * 执行过程:
+         * 先判断表达式1的结果,
+         * 如果为true则执行代码1
+         * 如果为false,则判断表达式2
+         * 如果表达式2为true则执行代码2
+         * 如果为false,则判断表达式3
+         * 如果表达式3为true则执行代码3
+         * 否则执行代码4
+         *
+         *
+         * */
+
+        /*
+         * 例子: 成绩的结果是在90到100(包含)之间则 显示A级
+         *  如果成绩是在80到90(包含)之间,则显示B级
+         *  如果成绩是在70到80(包含)之间,则显示C级
+         *  如果成绩是在60(包含)到70(包含)之间,则显示D级
+         *  如果成绩在0到60(不包含)之间,则显示E级
+         * */
+
+
+        //例子实现代码
+        var score = Number(prompt('请输入你的成绩'));
+        //如果score是一个数字，才执行成绩等级的判断
+        if (!isNaN(score)) {
+            if (score >= 90 && score <= 100) {
+                console.log('A');
+            } else if (score >= 80) {
+                console.log('B');
+            } else if (score >= 70) {
+                console.log('C');
+            } else if (score >= 60) {
+                console.log('D');
+            } else {
+                console.log('E');
+            }
+        } else {
+            console.log('你输入有误');
+        }
+    </script>
+</body>
+
+</html>

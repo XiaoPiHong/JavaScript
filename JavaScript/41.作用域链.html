@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-01 12:53:03
+ * @LastEditTime: 2020-03-01 13:04:02
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\41.作用域链.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //0级作用域
+        var num = 10;
+        function f1() {
+            //1级作用域
+            var num = 20;
+            function f2() {
+                //2级作用域
+                var num = 30;
+                function f3() {
+                    //3级作用域
+                    var num = 50;
+                    console.log(num);
+                }
+                f3();
+            }
+            f2();
+        }
+        f1();
+
+        /*总结：要使用num这个变量，先在当前的作用域去找，要是找不到就再从上一级去找，依次寻找，
+        0级作用域都找不到，就报错--------->（整个形成的关系叫作用域链）*/
+    </script>
+</body>
+
+</html>

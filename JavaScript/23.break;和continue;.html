@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //break：如果在循环遇到了break;，则立即跳出  当前  所在循环
+        //找到100到200之间第一个能被7整除的数字（使用break;）
+        for (var i = 100; i <= 200; i++) {
+            if (i % 7 == 0) {
+                console.log(i);
+                break;
+            }
+        }
+
+
+
+        //======================================================================
+
+
+
+        //continue: 在循环中如果遇到continue关键字, 直接开始下一次循环
+        //求100-200之间所有的奇数的和（用continue;）
+        var sum = 0;
+        var i = 100;
+        while (i <= 200) {
+            //判断是不是偶数
+            if (i % 2 == 0) {
+                //如果是偶数----->跳过这个数字
+                i++;
+                continue;
+            }
+            sum += i;
+            i++;
+        }
+        console.log(sum);
+
+
+        //案例:求整数100～200的累加值，但要求跳过所有个位为3的数
+        var sum = 0;
+        var i = 100;
+        while (i <= 200) {
+            if (i % 10 == 3) {
+                //个位数是3,不要
+                i++;
+                continue;
+            }
+            sum += i;
+            i++;
+        }
+        console.log(sum);
+    </script>
+</body>
+
+</html>

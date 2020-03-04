@@ -1,0 +1,85 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-03 10:37:28
+ * @LastEditTime: 2020-03-03 11:48:17
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\55.简单类型和复杂类型.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //原始数据类型: number,string,boolean,undefined, null,object
+        /*原始数据类型又可分为：
+        1.基本类型(简单类型),值类型: number,string,boolean
+        2.复杂类型(引用类型):object
+        3.空类型:undefined,null
+        */
+
+
+
+        /*值类型的值在哪一块空间中存储? 栈中存储
+        引用类型的值在哪一块空间中存储?对象在堆上存储,地址在栈上存储
+        var num=10;//值类型,值在栈上
+        var obj={};//复杂类型,对象在堆,地址(引用)在栈
+        */
+
+
+        /*1.值类型之间传递, 传递的是值
+        var num=10;
+        var num2=num;(传递的是值)
+
+
+
+
+        2.引用类型之间传递, 传递的是地址(引用)---->有图
+        var obj={
+          name:"小明"
+        };
+        function f2(obj2) {
+          obj2.name="小红";
+        }
+        console.log(obj.name);//小明
+        f2(obj);
+        console.log(obj.name);//小红
+
+
+
+
+        3.值类型作为函数的参数, 传递的是值
+        function f1(x) {
+          x=100;
+        }
+        var num=10;
+        f1(num);
+        console.log(num);//10
+
+
+
+        4.引用类型作为函数的参数, 传递的是地址----->有图*/
+        function Person(name, age, salary) {
+            this.name = name;
+            this.age = age;
+            this.salary = salary;
+        }
+        function f1(person) {
+            person.name = "ls";
+            person = new Person("aa", 18, 10);
+        }
+
+        var p = new Person("zs", 18, 1000);
+        console.log(p.name);//zs
+        f1(p);
+        console.log(p.name);//ls
+    </script>
+</body>
+
+</html>

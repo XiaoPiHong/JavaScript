@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //两个分支,最终的结果是两个分支中的一个,像这种情况可以使用三元表达式
+
+        /*
+         * 三元表达式
+         * 运算符号:  ?  :
+         *
+         *运算原理：要是问号左边的表达式true，则执行:号左边的代码，反之则执行:号右边的代码
+         *
+         *
+         * */
+
+        //两个数字中的最大值
+        var x = 10;
+        var y = 20;
+        var result1 = x > y ? x : y;
+        console.log(result1);
+
+        //显示成年还是未成年
+        var age = 10;
+        var result2 = age >= 18 ? "成年了" : "未成年";
+        console.log(result2);
+
+    //总结:大多数情况,使用if-else的语句都可以用三元表达式的方式来表示
+    </script>
+</body>
+
+</html>

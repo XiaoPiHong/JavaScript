@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //    alert();    //弹框
+        //    console.log();    //在控制台
+        // document.write('<a href="http://www.baidu.com">百度</a>');   //document.write里面一般写html
+
+        /*for (var i = 1; i <= 5; i++) {
+            document.write("*****");
+            document.write("<br>")
+        }*/
+
+
+        //和上面实现的结果一样
+        /*for (var j = 1; j <= 5; j++) {
+            for (var i = 1; i <= 5; i++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }*/
+
+
+        //三角形的*
+        for (var i = 1; i <= 5; i++) {
+            for (var j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+
+
+        //九九乘法表
+        //有多少行
+        for (var k = 1; k <= 9; k++) {
+            //每行多少个
+            for (var i = 1; i <= k; i++) {
+                document.write(i + "*" + k + "=" + i * k);
+            }
+            document.write("<br>");
+        }
+
+
+
+
+
+        //九九乘法表，有表格
+        document.write("<table border='1' cellpadding='0' cellspacing='0'>");
+        //有多少行
+        for (var k = 1; k <= 9; k++) {
+            document.write("<tr>");
+            //每行多少个
+            for (var i = 1; i <= k; i++) {
+                document.write('<td>');
+                document.write(i + "*" + k + "=" + i * k);
+                document.write('</td>');
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

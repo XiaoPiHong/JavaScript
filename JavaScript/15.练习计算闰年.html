@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //普通闰年:公历年份是4的倍数的，且不是100的倍数，为闰年
+        //世纪闰年: 公历年份是整百数的，必须是400的倍数才是世纪闰年
+        var year = Number(prompt('请输入今年的年份'));
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            console.log('今年为闰年');
+        } else {
+            console.log('今年不是闰年');
+        }
+    </script>
+</body>
+
+</html>

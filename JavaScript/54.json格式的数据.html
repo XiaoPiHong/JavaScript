@@ -1,0 +1,63 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-02 22:41:07
+ * @LastEditTime: 2020-03-02 23:39:41
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\54.json格式的数据.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*访问json数据最重要的一点：对象中确实有这个属性对象就用  .属性名字  或者  对象[属性名字]；
+        没有的话就一定要用  对象[属性名字]*/
+
+
+
+        //JSON格式的数据:一般都是成对的,是键值对,
+        //json也是一个对象,数据都是成对的,一般json格式的数据无论是键还是值都是用双引号括起来的
+        //    var obj={
+        //      name:"小明"
+        //    };
+        var json = {
+            "name": "小明",
+            "age": "10",
+            "sex": "男"
+        };
+        //遍历对象,是不能通过for循环遍历,因为无序(即没用索引)
+        console.log(json.name);
+        console.log(json["name"]);
+
+        var key = "age";
+        console.log(json[key]);
+
+        console.log(json["height"]);//undefined
+        /*为什么上面的height没有声明却是undefined，因为js是一门动态的动态类型的语言，只要通过
+        点语法，就可以为对象增加属性和方法,  json["height"]  相当于   json.height   */
+
+
+        //for循环不行，可以通过for-in循环
+        for (var key in json) {
+            //console.log(key);//json对象中的属性的名字
+            console.log(json[key]);//对象中确实有这个属性对象.属性名字  或者对象[属性名字]
+        }
+
+
+        //key是一个变量,这个变量中存储的是该对象的所有的属性的名字
+        for (var key in json) {
+            console.log(key + "===========" + json[key]);
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*while循环语法:
+        //计数器
+        var 变量 = 0;
+        while (循环的条件) {
+            循环体;
+            计数器++;
+        }*/
+        var i = 0;
+        while (i < 10) {
+            console.log('我帅了');
+            i++;
+        }
+
+
+
+        //计算1-100之间所有的数字的和
+        var sum = 0;
+        var k = 1;
+        while (k <= 100) {
+            sum += k;
+            k++;
+        }
+        console.log(sum);
+
+
+
+        //求帐号和密码是否一致,登录的效果实现
+        //提示用户输入帐号
+        //提示用户输入密码
+        //如果帐号或者密码不对,则一直提示用户输入帐号和密码
+        //帐号--admin
+        //密码--123---字符串类型
+        var userName = prompt("请您输入帐号");//存储帐号的
+        var userPwd = prompt("请您输入密码");//存储密码
+        while (userName != "admin" || userPwd != "123") {
+            //变量的重新赋值
+            userName = prompt("请您输入帐号");//存储帐号的
+            userPwd = prompt("请您输入密码");//存储密码
+        }
+        console.log("登录成功");
+    </script>
+</body>
+
+</html>

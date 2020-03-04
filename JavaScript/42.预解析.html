@@ -1,0 +1,80 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-01 13:04:29
+ * @LastEditTime: 2020-03-01 13:35:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\42.预解析.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //预解析：提前解析代码（函数和变量的声明提前了，提前到当前所在作用域的最上面）
+
+
+
+        // 例子1：
+        /*如果按照代码从上到下执行，这个会报错，但是js会预解析，所以提前声明了变量num，但是不会赋予
+        值，结果就是undefined*/
+        console.log(num);//undefined
+        var num = 10;
+
+
+        // 例子2：
+        /*如果按照代码从上到下执行，这个会报错，但是js会预解析,函数f1被提前声明了，所以会输出111111111111*/
+        f1();//111111111111
+        function f1() {
+            console.log("111111111111");
+        }
+
+
+        //例子3：
+        //函数和变量num2都被提前到自己的作用域，所以是undefined
+        f2();//undefined
+        function f2() {
+            console.log(num2);
+            var num2 = 20;
+        }
+
+
+        // 例子4：
+        //函数和函数中变量num3都被提前到自己的作用域，注意的是全局变量num3和局部变量num3不是同个变量
+        f3();//undefined
+        var num3 = 50;
+        function f3() {
+            console.log(num3);
+            var num3 = 20;
+        }
+
+
+        //例子5：
+        f4();//undefined
+        var num4 = 70;
+        function f4() {
+            console.log(num4);
+        }
+        /*详细解释例子5：
+        =====首先提前解析了函数和变量即如下，注意的是变量是声明但不赋值=====：
+        function f4() {
+            console.log(num4);
+        }
+        var num4=70;
+
+        ==========================再调用函数====：
+        f1();//undefined
+
+        =======================最后才赋值了，所以是undefined====：
+        num4=70
+        */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-01 13:40:23
+ * @LastEditTime: 2020-03-01 15:09:55
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\43.预解析分段的问题和局部作用域的问题.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 说明：预解析中，函数的变量的提升只会在当前作用域中提升，提升到当前作用域的最前面
+        function f1() {
+            console.log(num1);
+            var num1 = 10;
+        }
+        f1();//undefined
+        //console.log(num1);//报错
+
+
+
+        //说明：预解析会分段（多对script中函数重名，预解析时不会冲突）
+        function f2() {
+            console.log("哈哈");
+        }
+        f2();//哈哈
+    </script>
+    <script>
+        function f2() {
+            console.log("嘎嘎");
+        }
+        f2();//嘎嘎
+    </script>
+</body>
+
+</html>

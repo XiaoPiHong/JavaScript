@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-02 21:43:34
+ * @LastEditTime: 2020-03-02 22:01:49
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\51.创建对象3-(字面量的方法创建).html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //var obj = new Object();       //构造函数来创建对象
+        //var obj = new 自定义构造函数();     //自定义构造函数创建对象
+
+        //3.字面量的方式创建对象(与构造函数创建对象的方法类似)
+        var obj = {};//空对象
+
+        //添加属性
+        obj.name = "小白";
+        //添加方法
+        obj.sayHi = function () {
+            console.log("我是" + this.name);
+        };
+        obj.sayHi();
+
+
+
+
+        //上面优化后的写法变成（一般用这种方法）：
+        var obj2 = {
+            name: "小明",
+            age: 20,
+            sayHi: function () {
+                console.log("我是:" + this.name);
+            },
+            eat: function () {
+                console.log("吃了");
+            }
+        };
+        obj2.sayHi();
+        obj2.eat();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //不要用小数验证小数
+        var num1 = 0.1;
+        var num2 = 0.2;
+        var sum = num1 + num2;
+        console.log(sum);
+
+
+
+        //不要使用NaN判断是不是NaN，应该使用isNaN(值或者是变量)
+        var num;
+        var sum = num + 10;
+        console.log(sum == NaN);
+        console.log(isNaN(sum));//判断结果：不是数字就为true，是数字结果为false
+
+
+        //总结:
+        /*
+        *
+        * 数字类型:number类型
+        * 无论是整数还是小数都是数字类型
+        * 不要用小数验证小数
+        * 不要使用NaN判断是不是NaN，应该使用isNaN(值或者是变量)
+        * 想要表示十进制:就是正常的数字
+        * 想要表示八进制:以0开头
+        * 想要表示十六进制:0x开头
+        *
+        *
+        *
+        * */
+    </script>
+</body>
+
+</html>
