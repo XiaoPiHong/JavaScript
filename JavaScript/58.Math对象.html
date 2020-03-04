@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-03 12:25:31
- * @LastEditTime: 2020-03-03 13:39:51
+ * @LastEditTime: 2020-03-04 14:15:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\58.Math对象.html
@@ -13,9 +13,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-
-<body>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
     <script>
         //实例对象:通过构造函数创建出来,实例化的对象
         //静态对象:不需要创建,直接就是一个对象,方法(静态方法)直接通过这个对象名字调用,
@@ -39,27 +43,59 @@
 
 
         // 例子：
-        console.log(Math.abs('-1'));//1
+        /*console.log(Math.abs('-1'));//1
         console.log(Math.abs(-2));//2
         console.log(Math.abs(null));//0  重点
         console.log(Math.abs("string"));//NaN
-
+ 
         console.log(Math.ceil(-5.1));//-5
-
+ 
         console.log(Math.floor(-5.1));//-6
-
+ 
         console.log(Math.max(1, 22, 33, 44, 1, 2424, 55));//2424
-
+ 
         console.log(Math.min(1, 22, 33, 44, 1, 2424, 55));//1
-
+ 
         console.log(Math.pow(2, 2));//4
-
+ 
         console.log(Math.sqrt(4));//2
-
+ 
         console.log(Math.random()); //(0,1)随机数
+ 
+        console.log(parseInt(Math.random() * 100 + 1))//随机产生一个(0-100)的数*/
 
-        console.log(parseInt(Math.random() * 100 + 1))//随机产生一个(0-100)的数
+
+        //随机产生一个十六进制的颜色值
+        //封装成一个函数
+        function getColor() {
+            var str = "#";
+            //一个十六进制的数组
+            var arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+            for (var i = 0; i < 6; i++) {
+                //产生的每个随机数都是一个索引,根据索引找到数组中对应的值,拼接到一起
+                var num = parseInt(Math.random() * 16);
+                str += arr[num];
+            }
+            return str;
+        }
+
+
+
+
+        console.log(getColor());
+
+
+
+        //页面记载的事件
+        window.onload = function () {
+            //在文档中通过id属性的值查找这个元素(标签).设置该标签的背景颜色
+            document.getElementById("dv").style.backgroundColor = getColor();
+        };
     </script>
+</head>
+
+<body>
+    <div id="dv"></div>
 </body>
 
 </html>

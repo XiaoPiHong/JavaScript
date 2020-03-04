@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-02 22:41:07
- * @LastEditTime: 2020-03-02 23:39:41
+ * @LastEditTime: 2020-03-04 12:30:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\54.json格式的数据.html
@@ -17,14 +17,14 @@
 
 <body>
     <script>
-        /*访问json数据最重要的一点：对象中确实有这个属性对象就用  .属性名字  或者  对象[属性名字]；
-        没有的话就一定要用  对象[属性名字]*/
+        /*访问json数据最重要的一点：对象中确实有这个属性对象就用  .属性名字  或者  对象["属性名字"]；
+        没有的话就一定要用  对象["属性名字"]*/
 
 
 
         //JSON格式的数据:一般都是成对的,是键值对,
         //json也是一个对象,数据都是成对的,一般json格式的数据无论是键还是值都是用双引号括起来的
-        //    var obj={
+        //    var obj={  //这个键没有加双引号的对象一般是实例化的
         //      name:"小明"
         //    };
         var json = {
@@ -46,8 +46,8 @@
 
         //for循环不行，可以通过for-in循环
         for (var key in json) {
-            //console.log(key);//json对象中的属性的名字
-            console.log(json[key]);//对象中确实有这个属性对象.属性名字  或者对象[属性名字]
+            // console.log(key);//json对象中的属性的名字
+            console.log(json[key]);//对象中确实有这个属性对象.属性名字  或者对象["属性名字"]
         }
 
 

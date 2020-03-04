@@ -1,0 +1,75 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-04 13:45:03
+ * @LastEditTime: 2020-03-04 18:11:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\59.Date对象.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建实例对象
+        // var dt = new Date();
+        //当前的时间(当前服务器)
+        // console.log(dt);
+
+        // var dt = new Date("2017-02-10");
+        //传入的时间
+        // console.log(dt);
+
+        // var dt = new Date("2017/02/10");
+        //传入的时间
+        // console.log(dt);
+
+        // var dt = Date.now();
+        //1970到现在的毫秒
+        // console.log(dt);
+
+
+        /*var dt = new Date();
+        //获取年份
+        console.log(dt.getFullYear());
+        //获取月份
+        console.log(dt.getMonth() + 1);//是0开始的 真实的月份是需要加1的
+        //获取日期
+        console.log(dt.getDate());
+        //获取小时
+        console.log(dt.getHours());
+        //获取分钟
+        console.log(dt.getMinutes());
+        //获取秒
+        console.log(dt.getSeconds());
+        //获取星期
+        console.log(dt.getDay());//星期从0开始的,0是星期日*/
+
+
+
+        var dt = new Date();
+        console.log(dt);
+        console.log(dt.toDateString());//英文的---日期（Wed Mar 04 2020）
+        console.log(dt.toLocaleDateString());//数字格式--日期（2020/3/4）
+        console.log(dt.toTimeString());//小时分钟秒（17:40:46 GMT+0800 (中国标准时间)）
+        console.log(dt.toLocaleTimeString());//小时分钟秒,有上午和下午的（下午5:40:46）
+        console.log(dt.valueOf());//毫秒值（1583314846352）
+
+
+        /*
+        //当前服务器的时间
+        console.log(dt);
+        //转成字符串
+        console.log(dt.toString());
+        //虽然输出的颜色一样，但是它们类型是不一样的
+        */
+    </script>
+</body>
+
+</html>
