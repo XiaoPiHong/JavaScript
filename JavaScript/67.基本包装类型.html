@@ -1,0 +1,80 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-05 17:09:29
+ * @LastEditTime: 2020-03-05 18:03:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\67.基本包装类型.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ==============================基本包装类型（被包装的基本类型）==========================
+
+        //首先要知道：
+        /*
+        1.普通变量不能直接调用属性或者方法
+        2.对象可以直接调用属性和方法
+        */
+
+        /*
+        基本包装类型: 本身是基本类型, 但是在执行代码的过程中, 如果这种类型的变量调用了属性或者是方法,
+        那么这种类型就不再是基本类型了, 而是基本包装类型, 这个变量也不是普通的变量了, 而是基本包装类型对象。
+        */
+        //基本类型有：string number boolean（说明它们都是可以变成基本包装类型）
+
+        // 例子1
+        /*var str = "hello";
+        str = str.replace("ll", "HH");//因为调用了方法，所以变成了基本包装类型对象
+        console.log(str);*/
+        // 例子2
+        var str = "hello";
+        str = str.replace("ll", "HH");//因为调用了方法，所以变成了基本包装类型对象
+        console.log(str);
+        // 例子3
+        /*var num = 10;//现在是基本类型(number型)
+        console.log(num.toString());//现在是基本包装类型对象*/
+
+
+
+
+        // =================重要且恶心==================
+        // 注意1
+        // 如果是一个对象 && true, 那么结果是true(&&flase同理)
+        /*  var flag = new Boolean(false);
+         var result = flag && true;
+         console.log(result); */
+
+        //  注意2
+        // 如果是一个true && 对象, 那么结果是对象
+        var flag = new Boolean(false);
+        var result = true && flag;
+        console.log(result);
+
+        // 注意3
+        // var num = 10;
+        // var num2 = Number("10");//转换,没有new---类型转换（基本类型）
+        // var num3 = new Number("10");//基本包装类型
+
+
+
+        // ========================理解===============================
+        // 要是一个基本类型调用方法了，系统会直接将它变成基本包装类型，如：
+        // 本来是：var str = "hello";
+
+        //后来因为调用了方法，变成：
+        var str = new String("hello");
+        str = str.replace("ll", "HH");//就是这里调用了方法
+        str = null;//释放内存
+    </script>
+</body>
+
+</html>

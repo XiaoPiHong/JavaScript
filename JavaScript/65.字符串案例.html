@@ -1,0 +1,81 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-05 11:43:51
+ * @LastEditTime: 2020-03-05 14:03:24
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\65.字符串案例.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //案例1
+        /*  var str = prompt("请输入一段文字，用于截取");
+         var key = prompt("请输入你需要截取的文字");
+         var len = key.length;
+         //先获取字符串索引的位置
+         var index = str.indexOf(key);
+         //从指定的位置开始截取，长度为输入的截取文字的长度
+         str = str.substr(index, len);
+         console.log(str); */
+
+
+        //案例2:找到这个字符串中所有的 o 出现的位置,并装进一个数组中
+        /* var str2 = "hello wod odd ott fbo nhyo od dddddd";
+        var arr = [];
+        var key = "dd";
+        for (var i = 0; i < str2.length; i++) {
+            if (str2.indexOf(key, i) != -1) {
+                i = str2.indexOf(key, i);
+                arr.push(i);
+            }
+        }
+        console.log(arr);
+
+        // 案例2用while循环做
+        var str2 = "hello wod odd ott fbo nhyo dddddd";
+        var index = 0;//开始的位置
+        var key = "dd";//要找的字符串
+        while ((index = str2.indexOf(key, index)) != -1) {//如果是-1情况,说明找完了
+            console.log(index);
+            index += key.length;
+            //（找到之后将index加要找的字符串长度,跳过这个字符串继续找，这里和上面的for循环做法不一样，结果也不一样）
+        } */
+
+
+
+
+        //案例3:找到这个字符串中每个字符串出现了多少次
+        var str3 = "whatOareYyouYnoYshaHleiHoHmyHgod";
+        //第一步:把所有的字母全部变成小写
+        str3 = str3.toLocaleLowerCase();
+        //第二步:创建一个空对象,目的:把字母作为键,次数作为值
+        var obj = {};
+        //第三步,遍历字符串,获取每个字母
+        for (var i = 0; i < str3.length; i++) {
+            //判断obj这个对象中有没有这个字母(字母---键)
+            var key = str3[i];//每个字母
+            if (obj[key]) {//判断obj中有没有这个键
+                //对象中有这个字母了
+                obj[key]++;
+            } else {
+                //对象中没有这个字母,那就把字母加到对象中,并且给这个字母一个出现的次数,默认1次
+                obj[key] = 1;
+            }
+        }
+        //遍历对象,显示每个字母的次数
+        for (var key in obj) {
+            console.log(key + "这个字母出现了" + obj[key] + "次");
+        }
+    </script>
+</body>
+
+</html>
