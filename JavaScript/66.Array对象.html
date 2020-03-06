@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-05 14:14:46
- * @LastEditTime: 2020-03-05 17:08:16
+ * @LastEditTime: 2020-03-06 09:59:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\66.Array对象.html
@@ -45,11 +45,14 @@
 
 
         //==================================Array的属性
-        //1.求数组长度(.length)
+        //1.求数组长度(.length)，也可以用于清空数组的元素
         //首先要创建一个数组对象
         //var arr = new Array();//构造函数方式
         var arr = [1, 2, 3];//字面量方式
         console.log(arr.length);//3
+
+        arr.length = 0;//清空数组的元素
+        console.log(arr);//一个空数组
 
 
 
