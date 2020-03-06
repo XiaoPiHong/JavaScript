@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-04 13:45:03
- * @LastEditTime: 2020-03-04 18:11:52
+ * @LastEditTime: 2020-03-06 10:18:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\59.Date对象.html
@@ -61,14 +61,9 @@
         console.log(dt.toLocaleTimeString());//小时分钟秒,有上午和下午的（下午5:40:46）
         console.log(dt.valueOf());//毫秒值（1583314846352）
 
-
-        /*
-        //当前服务器的时间
-        console.log(dt);
-        //转成字符串
-        console.log(dt.toString());
-        //虽然输出的颜色一样，但是它们类型是不一样的
-        */
+        // 把毫秒值转化成日期对象
+        var dt2 = new Date(dt.valueOf());
+        console.log(dt2);//Fri Mar 06 2020 10:17:58 GMT+0800 (中国标准时间)
     </script>
 </body>
 
