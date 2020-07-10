@@ -1,0 +1,86 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-19 10:34:40
+ * @LastEditTime: 2020-05-19 11:04:49
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\35获取元素计算后的样式属性值.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #dv {
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+            left: 100px;
+        }
+    </style>
+    <script src="../common.js"></script>
+</head>
+
+<body>
+    <input type="button" value="显示效果" id="btn">
+    <div id="dv"></div>
+    <script>
+        //获取div距离左边位置的值
+        my$('btn').onclick = function () {
+            console.log(my$('dv').offsetLeft); //0  (要是使元素脱标的话就会显示 100)
+
+            //因为在style标签中声明了有left属性，所以不管元素脱不脱标，是可以获取到left属性的值的，但是，不是用上面的方法,获取的方法如下：
+
+
+            //谷歌,火狐支持
+            console.log(window.getComputedStyle(my$('dv'), null).left); //100px
+            //IE8支持
+            // console.log(my$("dv").currentStyle.left);
+
+
+            //因为不同浏览器支持的方法不一样，所以要写兼容代码
+            //1.为了兼容代码书写的方便，获取left属性的时候不是用.left的方式获取而是用['left']的方式，如下：
+            console.log(window.getComputedStyle(my$("dv"), null)["left"]); //100px
+        };
+
+        //2.兼容代码如下：
+        //判断浏览器是否支持这个方法
+        /*  function getStyle(element, attr) {
+             if (typeof window.getComputedStyle == 'undefined') {
+                 return element.currentStyle[attr];
+             } else {
+                 return window.getComputedStyle(my$('dv'), null)[attr];
+             }
+         } */
+
+        //3.优化的兼容代码如下：
+        //判断浏览器是否支持这个方法
+        /*  function getStyle(element, attr) {
+             if (window.getComputedStyle) {
+                 return window.getComputedStyle(my$('dv'), null)[attr];
+             } else {
+                 return element.currentStyle[attr];
+             }
+         } */
+
+        //4.继续优化的兼容代码如下：
+        function getStyle(element, attr) {
+            //判断浏览器是否支持这个方法
+            return window.getComputedStyle ? window.getComputedStyle(my$('dv'), null)[attr] : element.currentStyle[
+                attr];
+        }
+
+        //5.测试兼容代码
+        console.log(getStyle(my$('dv'), 'left'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 13:55:47
+ * @LastEditTime: 2020-03-19 14:21:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\36其他获取元素方式.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cls {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="根据id选择器的方式获取元素" id="btn1"><br>
+    <div class="cls">1111</div>
+    <input type="button" value="根据选择器的方式获取元素" id="btn2"><br>
+
+    <script>
+        /* 根据选择器的方式获取元素------>h5和c3的方式*/
+
+
+        //1.querySelector(''); -----> 返回一个元素对象
+        document.querySelector('#btn1').onclick = function () {
+            alert("哈哈我又变帅了");
+        };
+
+
+        document.getElementById('btn2').onclick = function () {
+            //2.querySelectorAll('');------>返回一个元素对象伪数组
+            document.querySelectorAll('.cls')[0].style.backgroundColor = 'red';
+        };
+    </script>
+</body>
+
+</html>

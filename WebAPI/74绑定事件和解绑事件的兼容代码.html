@@ -1,0 +1,61 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-30 12:10:24
+ * @LastEditTime: 2020-03-30 12:27:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git_rep\WebAPI\74绑定事件和解绑事件的兼容代码.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="common.js"></script>
+</head>
+
+<body>
+    <script>
+        //绑定事件的兼容代码(以后绑定事件都是用兼容代码比较好)
+        function addEventLisenner(element, type, fnName) {
+            if (element.addEventLisenner) {
+                element.addEventLisenner(type, fnName, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, fnName);
+            } else {
+                element["on" + type] = fnName;
+            }
+        }
+        //解绑事件的兼容代码
+        function removeEventListener(element, type, fnName) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, fnName, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, fnName);
+            } else {
+                element["on" + type] = null;
+            }
+        }
+    </script>
+    <input type="button" value="按钮1" id="btn1">
+    <input type="button" value="按钮2" id="btn2">
+    <script>
+        function f1() {
+            console.log('按钮1的事件1');
+        }
+        function f2() {
+            console.log('按钮1的事件2');
+        }
+        //为按钮1绑定两个事件
+        addEventListener(my$('btn1'), 'click', f1);
+        addEventListener(my$('btn1'), 'click', f2);
+        //点击按钮2时，为按钮1解绑事件1
+        addEventListener(my$('btn2'), 'click', function () {
+            removeEventListener(my$('btn1'), 'click', f1);
+        });
+    </script>
+</body>
+
+</html>

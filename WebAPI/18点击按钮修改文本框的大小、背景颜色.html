@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-15 23:38:11
+ * @LastEditTime: 2020-03-15 23:46:09
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\18点击按钮修改文本框的大小、背景颜色.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="修改div的大小和背景颜色" id="btn">
+    <div id="div1"></div>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        //点击按钮,修改div的宽,高,背景颜色
+        my$('btn').onclick = function () {
+            my$('div1').style.width = '300px';
+            my$('div1').style.height = '300px';
+            //凡是css中这个属性是多个单词的写法,在js代码中DOM操作的时候.把-干掉,后面的单词的首字母大写即可
+            my$('div1').style.backgroundColor = 'pink';
+        };
+    </script>
+</body>
+
+</html>

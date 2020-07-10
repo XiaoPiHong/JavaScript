@@ -1,0 +1,78 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-30 14:41:17
+ * @LastEditTime: 2020-03-30 14:57:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git_rep\WebAPI\75什么是事件冒泡.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="common.js"></script>
+    <style>
+        #dv1 {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #dv2 {
+            width: 250px;
+            height: 150px;
+            background-color: green;
+        }
+
+        #dv3 {
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        // 什么是事件冒泡：
+        /*  事件冒泡:多个元素嵌套,有层次关系,这些元素都注册了相同的事件,如果里面的元
+         素的事件触发了,外面的元素的该事件自动的触发了。 */
+
+        //  理解：
+        /* 1.其实嵌套的元素并不是在它父级元素里面的，而是在它父级元素的上层
+
+            2.如果点击了在上层的元素，下层元素相同的事件也会触发
+
+            3.如果不给body标签高度，body标签的高度是根据内容而定的
+        */
+    </script>
+</head>
+
+<body>
+    <div id="dv1">
+        <div id="dv2">
+            <div id="dv3"></div>
+        </div>
+    </div>
+    <script>
+        my$("dv1").onclick = function () {
+            console.log(this.id);
+        };
+        my$("dv2").onclick = function () {
+            console.log(this.id);
+        };
+        my$("dv3").onclick = function (e) {
+            console.log(this.id);
+        };
+        document.body.onclick = function () {
+            console.log("颤抖吧,你们这些愚蠢的标签");
+        };//body标签在最下层
+
+        //鼠标进入#div3的标签，也会触发#div2的鼠标进入事件
+        /* my$("dv2").onmouseover = function () {
+            console.log(this.id);
+        }; */
+    </script>
+</body>
+
+</html>

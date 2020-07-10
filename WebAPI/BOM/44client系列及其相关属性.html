@@ -1,0 +1,65 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-29 21:00:28
+ * @LastEditTime: 2020-06-29 21:13:22
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\44client系列及其相关属性.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dv1 {
+            width: 200px;
+            height: 230px;
+            border: 30px solid red;
+            border-top-width: 100px;
+            border-left-width: 50px;
+        }
+    </style>
+    <script>
+        /* 复习：
+        offset系列:获取元素的宽,高,left,top, offsetParent(找离自己最近有定位的父元素)
+        offsetWidth:元素的宽,有边框
+        offsetHeight:元素的高,有边框
+        offsetLeft:元素距离左边位置的值
+        offsetTop:元素距离上面位置的值
+        
+        scroll系列:卷曲出去的值
+        scrollLeft:向左卷曲出去的距离
+        scrollTop:向上卷曲出去的距离
+        scrollWidth:元素中内容的实际的宽(如果内容很少,没有内容,元素自身的宽),没有边框
+        scrollHeight:元素中内容的实际的高(如果内容很少或者没有内容,元素自身的高),没有边框
+         */
+
+
+
+        /* 
+        client系列---可视区域：
+        clientWidth:可视区域的宽(没有边框),边框内部的宽度
+        clientHeight:可视区域的高(没有边框),边框内部的高度
+        clientLeft:左边边框的宽度
+        clientTop:上面的边框的宽度
+         */
+    </script>
+</head>
+
+<body>
+    <div class="dv1"></div>
+    <input type="button" value="显示效果" id="btn1">
+    <script>
+        document.getElementById('btn1').onclick = function () {
+            console.log(document.getElementsByClassName('dv1')[0].clientWidth); //200---可视区域的宽（盒子内白色区域即为可视区域）
+            console.log(document.getElementsByClassName('dv1')[0].clientHeight); //230---可视区域的高（盒子内白色区域即为可视区域）
+            console.log(document.getElementsByClassName('dv1')[0].clientLeft); //50---左边边框的宽
+            console.log(document.getElementsByClassName('dv1')[0].clientTop); //100---上边边框的宽
+        };
+    </script>
+</body>
+
+</html>

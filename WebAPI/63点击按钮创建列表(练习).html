@@ -1,0 +1,59 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-27 15:26:32
+ * @LastEditTime: 2020-03-27 15:37:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\63点击按钮创建列表(练习).html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="创建列表" id="btn">
+    <div id="dv"></div>
+    <script>
+        var content = ['1111', '2222', '3333'];
+        document.getElementById('btn').onclick = function () {
+            var str = '<ul style="list-style:none;cursor:pointer";>';
+            //根据循环创建对应的li
+            for (var i = 0; i < content.length; i++) {
+                str += '<li>' + content[i] + '</li>'
+            }
+            str += '</ul>'
+            document.getElementById('dv').innerHTML = str;
+
+
+
+            //执行到这里，li已近创建完了，可以继续为其添加其他的点击事件
+            //获取所有的li,遍历,添加鼠标进入事件,鼠标离开事件
+            var list = document.getElementById('dv').getElementsByTagName("li");
+            for (var i = 0; i < list.length; i++) {
+                //鼠标进入
+                list[i].onmouseover = function () {
+                    this.style.backgroundColor = "yellow";
+                };
+                //鼠标离开
+                list[i].onmouseout = function () {
+                    this.style.backgroundColor = "";
+                };
+
+            }
+        };
+    </script>
+</body>
+
+</html>

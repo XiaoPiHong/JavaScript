@@ -1,0 +1,37 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 11:24:46
+ * @LastEditTime: 2020-03-19 11:37:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\34根据name属性值获取元素.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 点击按钮，改变所有name值属性值为input1的文本框的value的值 -->
+    <input type="button" value="更改" id="btn">
+    <input type="text" name="input1" value="哈哈">
+    <input type="text" name="input2" value="哈哈">
+    <input type="text" name="input1" value="哈哈">
+    <input type="text" name="input3" value="哈哈">
+    <input type="text" name="input1" value="哈哈">
+    <script>
+        document.getElementById('btn').onclick = function () {
+            //通过name属性值获取元素-------表单的标签才有name属性
+            var inputs = document.getElementsByName('input1');
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].value = "你好啊";
+            }
+        };
+    </script>
+</body>
+
+</html>

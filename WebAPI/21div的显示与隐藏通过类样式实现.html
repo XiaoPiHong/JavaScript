@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-16 08:57:09
+ * @LastEditTime: 2020-03-16 09:52:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\21div的显示与隐藏通过类样式实现.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+        }
+
+        .cls {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="隐藏" id="btn">
+    <div id="div1"></div>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        my$('btn').onclick = function () {
+            // console.log(my$("div1").className);   //输出div1类样式名字的值，因为没有设置，所以是空的
+
+            //判断的是div是否应用了类样式
+            if (my$('div1').className != 'cls') {
+                //现在是显示的,应该隐藏
+                my$('div1').className = 'cls';
+                this.value = '显示';
+            } else {
+                //隐藏的状态----立刻显示
+                my$('div1').className = '';
+                this.value = '隐藏';
+            }
+        };
+    </script>
+</body>
+
+</html>

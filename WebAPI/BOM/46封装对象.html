@@ -1,0 +1,78 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-01 13:40:07
+ * @LastEditTime: 2020-07-01 15:03:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\46封装对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/bird.png" alt="" id="img">
+    <script>
+        //===============================首先了解：
+        //调用sayHi方法的同时,调用eat方法,是否可以在一个方法中调用另一个方法?
+        //在对象的方法中调用另一个方法如何调用?
+        var obj = {
+            sayHi: function () {
+                console.log("考尼奇瓦");
+                this.eat(); //this就是obj这个对象
+            },
+            eat: function () {
+                console.log("饭以ok,下来密西吧");
+            }
+        };
+        obj.sayHi();
+
+
+
+
+
+        //原先学习把代码封站在一个函数中
+        //现在学习把代码封装在对象中
+        var evt = {
+            //window.event和事件参数对象e的兼容
+            getEvent: function (evt) {
+                return window.event || evt;
+            },
+            //可视区域的横坐标的兼容代码
+            getClientX: function (evt) {
+                return this.getEvent(evt).clientX;
+            },
+            //可视区域的纵坐标的兼容代码
+            getClientY: function (evt) {
+                return this.getEvent(evt).clientY;
+            }
+        };
+
+
+
+
+        //封装对象后调用的方法：
+        document.onmousemove = function (e) {
+            //可视区域的横坐标
+            document.getElementById('img').style.left = evt.getEvent(e).clientX + "px";
+            //可视区域的纵坐标
+            document.getElementById('img').style.top = evt.getEvent(e).clientY + "px";
+        };
+    </script>
+</body>
+
+</html>

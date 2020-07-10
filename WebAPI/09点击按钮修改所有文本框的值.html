@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-14 10:40:51
+ * @LastEditTime: 2020-03-14 10:55:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\09点击按钮修改所有文本框的值.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="点击修改文本框的值" id="btn">
+    <input type="text" value="">
+    <input type="text" value="">
+    <input type="text" value="">
+    <input type="text" value="">
+    <input type="text" value="">
+    <input type="text" value="">
+    <input type="text" value="">
+    <input type="text" value="">
+    <script>
+        //根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+        document.getElementById('btn').onclick = function () {
+            //获取所有的文本框
+            var inputs = document.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++) {
+                //判断这个元素是不是按钮
+                if (inputs[i].type != 'button') {
+                    //如果不是双标签，就用.value='';来属性修改，如果是双标签就用.innerText='';来修改内容
+                    inputs[i].value = '修改了'
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

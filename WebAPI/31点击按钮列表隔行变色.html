@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-17 16:21:45
+ * @LastEditTime: 2020-03-17 16:31:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\31点击按钮列表隔行变色.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="隔行变色" id="btn">
+    <ul id="ul1">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <script src="common.js"></script>
+    <script>
+        my$('btn').onclick = function () {
+            var lisObj = my$('ul1').getElementsByTagName('li');
+            for (var i = 0; i < lisObj.length; i++) {
+                /*  // 偶数
+                 if (i % 2 == 0) {
+                     lisObj[i].style.backgroundColor = 'red';
+                     //奇数
+                 } else {
+                     lisObj[i].style.backgroundColor = 'yellow';
+                 } */
+
+                //上面的注释可以写成三元表达式
+                lisObj[i].style.backgroundColor = i % 2 == 0 ? 'red' : 'yellow';
+            };
+        }
+    </script>
+</body>
+
+</html>

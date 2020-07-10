@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-28 17:13:28
+ * @LastEditTime: 2020-04-28 17:23:41
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \WebAPI\BOM\03页面加载的事件.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //===========================很重要==========================
+        // 只要页面加载完毕,这个事件就会触发-----页面中所有的内容,标签,属性,文本,包括外部引入js文件
+        window.onload = function () {//要是不是这个事件，在标签生成之前获取这个标签就会报错
+            document.getElementById('btn').onclick = function () {
+                alert('哈哈');
+            };
+        };
+
+
+        //下面两个人事件是扩展的，不是很重要，主要是要知道有该事件
+        // 扩展的事件--- 页面关闭后才触发的事件（谷歌不支持，ie8支持）
+        window.onunload = function () {
+            alert('哈哈');
+        };
+        // 扩展事件--- 页面关闭之前触发的（谷歌不支持，ie8支持）
+        window.onbeforeunload = function () {
+            alert("哈哈");
+        };
+    </script>
+    <input type="button" value="按钮" id="btn">
+</body>
+
+</html>

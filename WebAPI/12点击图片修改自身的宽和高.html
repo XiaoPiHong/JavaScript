@@ -1,0 +1,30 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-14 12:08:06
+ * @LastEditTime: 2020-03-14 12:27:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\12点击图片修改自身的宽和高.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/3.jpg" alt="" id="im">
+    <script>
+        var imgObj = document.getElementById('im');
+        imgObj.onclick = function () {
+            //点击图片,修改自身的宽和高
+            imgObj.width = '200';
+            imgObj.height = '400';
+        };
+    </script>
+</body>
+
+</html>

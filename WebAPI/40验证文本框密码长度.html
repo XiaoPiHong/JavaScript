@@ -1,0 +1,32 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 16:28:55
+ * @LastEditTime: 2020-03-19 16:36:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\40验证文本框密码长度.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <script>
+        document.getElementById('txt').onblur = function () {
+            //当长度小于等于10且大于等于6时背景为绿色，否则为红色
+            if (this.value.length <= 10 && this.value.length >= 6) {
+                this.style.backgroundColor = 'green';
+            } else {
+                this.style.backgroundColor = 'red';
+            }
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-14 11:06:24
+ * @LastEditTime: 2020-03-14 11:17:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\11点击按钮修改按钮的value属性.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <script>
+        //在某个元素的事件中,自己的事件中的this就是当前的这个元素对象
+
+
+
+        var btn = document.getElementById('btn')
+        btn.onclick = function () {
+            // btn.value = '修改了';
+            // btn.type = 'text';    // btn.value = '修改了'; 
+            // btn.id = 'btn1';
+            this.value = '修改了';
+            this.type = 'text';
+            this.id = 'btn1';
+        };
+    </script>
+</body>
+
+</html>

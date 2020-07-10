@@ -1,0 +1,78 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-27 11:09:36
+ * @LastEditTime: 2020-04-27 11:26:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \WebAPI\77事件阶段.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="common.js"></script>
+    <style>
+        #dv1 {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #dv2 {
+            width: 250px;
+            height: 150px;
+            background-color: green;
+        }
+
+        #dv3 {
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv1">
+        <div id="dv2">
+            <div id="dv3"></div>
+        </div>
+    </div>
+    <script>
+        //事件有三个阶段:
+        /*
+            1.事件捕获阶段:从外向内(对代码来说)
+            2.事件目标阶段:最开始选择的那个
+            3.事件冒泡阶段:从里向外(对代码来说)
+
+            下面有例子：
+        */
+
+
+
+        //同时注册点击事件
+        var objs = [my$("dv3"), my$("dv2"), my$("dv1")];
+        //遍历注册事件
+        objs.forEach(function (ele) {
+            //为每个元素绑定事件
+            ele.addEventListener("click", function (e) {
+                console.log(this.id + "====>" + e.eventPhase);//eventPhase是一个属性，该属性在事件参数对象中存在（该属性可以知道该事件的阶段）
+            }, true);//这里的boolen值是控制事件的阶段,true则是捕获阶段。false则是冒泡阶段（即：false就会冒泡，true就会捕获）
+        });
+        /*  因为boolen的值为true，点击蓝色即dv3,上面输出的结果为：
+                        dv1====>1
+                        dv2====>1
+                        dv3====>2
+        */
+        /*  要是boolen的值为false，点击蓝色即dv3,上面输出的结果为：
+                         dv3====>2
+                         dv2====>3
+                         dv1====>3
+         */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-03 17:51:05
+ * @LastEditTime: 2020-07-03 17:52:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\49阻止超链接跳转.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" id="ak">百度</a>
+    <script src="../common.js"></script>
+    <script>
+        my$("ak").onclick = function (e) {
+            alert("被点了");
+            return false;
+            //e.preventDefault();//阻止浏览器的默认的事件(谷歌火狐用)
+            //window.event.preventDefault();//阻止浏览器的默认的事件（ie8用）
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-28 20:50:34
+ * @LastEditTime: 2020-04-28 21:25:17
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \WebAPI\BOM\05history对象.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="跳过去" id="btn1" />
+    <input type="button" value="前进" id="btn2" />
+    <script src="../common.js"></script>
+    <script>
+        //跳转的
+        my$("btn1").onclick = function () {
+            window.location.href = "05history-test.html";
+        };
+        //前进
+        my$("btn2").onclick = function () {
+            window.history.forward();
+        };
+
+        /*  history对象有三个方法：
+         1.forward()前进
+         2.back()后退
+         3.go()-------------> go()方法要是参数为正数就是前进，负数就是后退 */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-29 09:31:03
+ * @LastEditTime: 2020-04-29 09:38:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \WebAPI\BOM\07BOM的定时器.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="停止" id="btn" />
+    <script>
+        //BOM中有两个定时器---也叫计时器
+
+
+
+        //定时器1
+        //参数1:函数
+        //参数2:时间---毫秒---1000毫秒--1秒
+        //执行过程:页面加载完毕后,过了1秒,执行一次函数的代码,又过了1秒再执行函数.....
+        //返回值就是定时器的id值
+        var timeId = setInterval(function () {
+            alert("hello");//断言（alert有断言的作用，即不点击，后面的不执行）
+        }, 3000);
+
+
+        //清除定时器1
+        document.getElementById("btn").onclick = function () {
+            //点击按钮,停止定时器
+            //参数:要清理的定时的id的值
+            window.clearInterval(timeId);
+        };
+    </script>
+</body>
+
+</html>

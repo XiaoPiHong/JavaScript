@@ -1,0 +1,34 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-15 21:16:05
+ * @LastEditTime: 2020-03-15 21:26:46
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\16点击按钮选择菜单.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="选择菜单" id="btn">
+    <select name="" id="ss">
+        <option value="1">油炸榴莲</option>
+        <option value="2">爆炒臭豆腐</option>
+        <option value="3">清蒸鲱鱼罐头</option>
+        <option value="4" id="op1">红烧牛鞭</option>
+    </select>
+    <script src="common.js"></script>
+    <script>
+        my$('btn').onclick = function () {
+            my$('op1').selected = true;
+        };
+    </script>
+</body>
+
+</html>

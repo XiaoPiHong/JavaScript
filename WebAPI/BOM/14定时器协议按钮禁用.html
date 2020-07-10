@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-08 17:14:10
+ * @LastEditTime: 2020-05-08 17:29:28
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\14定时器协议按钮禁用.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="tex" cols="30" rows="10">哈哈哈</textarea>
+    <input type="button" value="请仔细阅读协议(5)" id="btn" disabled="disable">
+    <script>
+        var time = 5;
+        var timeId = setInterval(function () {
+            //改变按钮里的倒计时
+            document.getElementById('btn').value = "请仔细阅读协议" + "(" + time + ")";
+            time--;
+            if (time <= 0) {
+                //清楚定时器
+                clearInterval(timeId);
+                //按钮变为可以点击
+                document.getElementById('btn').disabled = false;
+                document.getElementById('btn').value = '同意';
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

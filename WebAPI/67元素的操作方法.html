@@ -1,0 +1,69 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-27 20:01:39
+ * @LastEditTime: 2020-03-29 23:11:20
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\67元素的操作方法.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="往前面加入元素" id="btn" />
+    <input type="button" value="干掉第一个子元素" id="btn2" />
+    <input type="button" value="干掉所有子元素" id="btn3" />
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //计数器，方便观看效果
+        var i = 0;
+        my$("btn").onclick = function () {
+            i++;
+            var obj = document.createElement("input");
+            obj.type = "button";
+            obj.value = "按钮" + i;
+            //1.my$("dv").appendChild(obj);//追加子元素,从后面追加
+
+
+
+            //2.把新的子元素插入到第一个子元素的前面，注意：2个参数，第一个为加入的元素，第二个为参照的元素
+            my$("dv").insertBefore(obj, my$("dv").firstElementChild);
+
+
+
+            //3，替换元素，注意：2个参数，第一个为替换后的元素，第二个为需要替换的元素
+            //my$("dv").replaceChild();---自己玩
+        };
+
+
+        my$("btn2").onclick = function () {
+            //4.移除父级元素中第一个子级元素
+            my$("dv").removeChild(my$("dv").firstElementChild);
+        };
+
+
+        my$("btn3").onclick = function () {
+            //5.点击按钮删除div中所有的子级元素(循环的方式)
+            //判断父级元素中有没有第一个子元素
+            while (my$("dv").firstElementChild) {//如果没有这个子集元素，my$("dv").firstElementChild返回来的是null
+                my$("dv").removeChild(my$("dv").firstElementChild);
+            }
+        };
+    </script>
+</body>
+
+</html>

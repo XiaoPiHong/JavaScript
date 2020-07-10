@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-27 13:09:40
+ * @LastEditTime: 2020-04-27 13:18:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \WebAPI\79为同一元素注册多个不同的事件并指向同个事件处理函数.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="common.js"></script>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <script>
+        //为同一元素注册多个不同的事件并指向同个事件处理函数
+        my$('btn').onclick = f1;
+        my$('btn').onmouseover = f1;
+        my$('btn').onmouseout = f1;
+        function f1(e) {
+            switch (e.type) {
+                case 'click': alert('哈哈'); break;
+                case 'mouseover': this.style.backgroundColor = "red"; break;
+                case 'mouseout': this.style.backgroundColor = "green"; break;
+            }
+        }
+    </script>
+</body>
+
+</html>

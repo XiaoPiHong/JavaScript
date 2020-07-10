@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-16 11:48:28
+ * @LastEditTime: 2020-05-16 11:51:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\30div的滚动事件onscroll.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid red;
+            width: 100px;
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <script>
+        document.getElementById('dv').onscroll = function () {
+            //当滚动条滚动的时候就获取向上卷曲出去的距离
+            console.log(document.getElementById('dv').scrollTop);
+        };
+    </script>
+</body>
+
+</html>

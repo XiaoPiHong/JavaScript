@@ -1,0 +1,33 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-14 10:25:34
+ * @LastEditTime: 2020-03-14 10:50:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\08点击按钮修改图片的alt和tiltle属性.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <img src="images/3.jpg" alt="哈哈" title="嘎嘎">
+    <script>
+        document.getElementById('btn').onclick = function () {
+            //注意：getElementsByTagName返回的是一个伪数组，所以只能用数组的方式去访问它的属性
+            var imgObjs = document.getElementsByTagName('img');
+            console.log(imgObjs);
+            //imgObj.alt = "改了";   这样访问的方法是错误的
+            imgObjs[0].alt = '改了';
+            imgObjs[0].title = '改了';
+        };
+    </script>
+</body>
+
+</html>

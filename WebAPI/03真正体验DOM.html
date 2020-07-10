@@ -1,0 +1,80 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-09 15:19:15
+ * @LastEditTime: 2020-03-10 23:06:22
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\03真正体验DOM.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 理解： -->
+    <!-- html中嵌入js代码不是很好，因为不方便后期的修改和维护，应该把它们分离-->
+    <!-- 点击操作----是一个事件（就是一件事，有触发和响应，还有事件源）
+    1.按钮---事件源
+    2.点击---事件名字
+    3.被点了---触发了
+    4.弹框了---响应 -->
+
+
+
+
+    <!-- 版本1 -->
+    <!-- <input type="button" value="弹框" id="btn" onclick="alert('弹出');"> -->
+
+
+
+
+    <!-- 版本2 -->
+    <script>
+        function f1() {
+            alert('很好');
+        }
+    </script>
+    <!-- 此处的写法虽然是f1函数调用，但是不会执行该函数，要点击的时候才能执行该函数 -->
+    <input type="button" value="弹框1" onclick="f1()">
+
+
+
+
+    <!-- 版本3（js代码与html代码已经分离）-->
+    <input type="button" value="弹框2" id="btn">
+    <script>
+        // document.getElementById('id属性的值')------>返回的是一个元素对象
+        var btnObj = document.getElementById('btn');
+        //为按钮注册点击事件
+        btnObj.onclick = f2;//这样写可能会重叠掉函数，所以不建议
+        function f2() {
+            alert('嘎嘎');
+        }
+    </script>
+
+
+
+
+    <!-- 最终的版本-->
+    <input type="button" value="弹框3" id="btn2">
+    <script>
+        //根据id属性的值从文档中获取这个元素
+        var btnObj2 = document.getElementById("btn2");
+        //为当前的这个按钮元素（对象），注册点击事件，添加事件处理函数（匿名函数）
+        btnObj2.onclick = function () {//这样写匿名函数可以防止函数被重叠掉
+            //响应做的事情
+            alert('嘎嘎嘎嘎');
+        }
+        /*上面可以简写成：
+             document.getElementById('btn2').onclick = function () {
+                 alert('嘎嘎嘎嘎');
+            }*/
+    </script>
+</body>
+
+</html>

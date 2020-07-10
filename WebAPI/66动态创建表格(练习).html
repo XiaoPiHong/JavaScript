@@ -1,0 +1,64 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-27 17:47:28
+ * @LastEditTime: 2020-03-27 19:47:59
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\66动态创建表格.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid red;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="创建表格" id="btn">
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        var arr = [
+            { name: "百度", href: "http://www.baidu.com" },
+            { name: "谷歌", href: "http://www.google.com" },
+            { name: "优酷", href: "http://www.youku.com" },
+            { name: "土豆", href: "http://www.tudou.com" },
+            { name: "快播", href: "http://www.kuaibo.com" },
+            { name: "爱奇艺", href: "http://www.aiqiyi.com" }
+        ];
+        //点击按钮创建表格
+        my$("btn").onclick = function () {
+            //创建table加入到div中
+            var tableObj = document.createElement("table");
+            tableObj.border = "1";//这个是table标签自带的属性,所以不用.style.属性
+            tableObj.cellPadding = "0";//这个是table标签自带的属性.style.属性
+            tableObj.cellSpacing = "0";//这个是table标签自带的属性.style.属性
+            my$("dv").appendChild(tableObj);
+            //创建行,把行加入到table中
+            for (var i = 0; i < arr.length; i++) {
+                var dt = arr[i];//每个对象
+                var trObj = document.createElement("tr");
+                tableObj.appendChild(trObj);
+                //创建第一个列,然后加入到行中
+                var td1 = document.createElement("td");
+                td1.innerText = dt.name;
+                trObj.appendChild(td1);
+                //创建第二个列
+                var td2 = document.createElement("td");
+                td2.innerHTML = "<a href=" + dt.href + ">" + dt.name + "</a>";
+                trObj.appendChild(td2);
+            }
+        };
+    </script>
+</body>
+
+</html>

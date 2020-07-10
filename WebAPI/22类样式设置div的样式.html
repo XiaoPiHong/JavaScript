@@ -1,0 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-16 09:56:35
+ * @LastEditTime: 2020-03-16 10:11:12
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\22类样式设置div的样式.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cls {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="添加类样式" id="btn">
+    <div id="div1"></div>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        my$('btn').onclick = function () {
+            //写法1
+            /* var divObj = my$('div1');
+             divObj.style.width = '200px';
+             divObj.style.height = '200px';
+             divObj.style.backgroundColor = 'pink';
+             divObj.style.border = '10px solid red'; */
+
+            //写法2
+            /*  my$('div1').style = 'width:200px;height:200px;background-color:pink;border:10px solid red;'; */
+
+            //写法3(增加类样式)
+            my$('div1').className = 'cls';
+            //此处不能写.class='cls';因为在js中class是关键字，如果这样写意思是为该对象添加一个名为class的属性
+        };
+    </script>
+</body>
+
+</html>

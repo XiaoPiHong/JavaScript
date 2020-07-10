@@ -1,0 +1,58 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-05 01:17:23
+ * @LastEditTime: 2020-07-05 01:20:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\58大量字符串拼接案例.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="拼接吧" id="btn" /><br />
+    <input type="text" value="" /><br />
+    <input type="text" value="" /><br />
+    <input type="text" value="" /><br />
+    <input type="text" value="" /><br />
+    <input type="text" value="" /><br />
+    <script src="../common.js"></script>
+    <script>
+        //字符串特性:不可变性
+        //点击按钮实现拼接
+        //  document.getElementById("btn").onclick=function () {
+        //    var str="";
+        //    //获取所有的文本框
+        //    var inputs=document.getElementsByTagName("input");
+        //    //每个文本框的value属性值
+        //    for(var i=0;i<inputs.length-1;i++){
+        //      if(inputs[i].type!="button"){
+        //        str+=inputs[i].value+"|";//这里会一直浪费空间，因为原来字符串没有被清除，只是原先的指针指向新的空间
+        //      }
+        //    }
+        //    console.log(str+inputs[inputs.length-1].value);
+        //  };
+
+        //推荐使用数组的方式拼接大量的字符串,因为不浪费空间
+        document.getElementById("btn").onclick = function () {
+            var str = [];
+            //获取所有的文本框
+            var inputs = document.getElementsByTagName("input");
+            //每个文本框的value属性值
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].type != "button") {
+                    str.push(inputs[i].value);
+                }
+            }
+            console.log(str.join("|")); //字符串
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-16 08:44:31
+ * @LastEditTime: 2020-03-16 08:54:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\20点击按钮显示和隐藏div.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="隐藏" id="btn1">
+    <div id="div1"></div>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        my$('btn1').onclick = function () {
+            //判断当前点击的按钮的value属性值
+            if (this.value == '隐藏') {
+                my$('div1').style.display = 'none';//隐藏
+                this.value = '显示';
+            } else if (this.value == '显示') {
+                my$('div1').style.display = 'block';//显示
+                this.value = '隐藏';
+            }
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 14:37:32
+ * @LastEditTime: 2020-03-19 14:52:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\38div的高亮显示.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border: 2px solid green;
+            float: left;
+            margin-left: 10px;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 获取所有的div
+        var dvObjs = document.getElementsByTagName('div');
+        for (var i = 0; i < dvObjs.length; i++) {
+            //为每个div添加鼠标进入的事件
+            dvObjs[i].onmouseover = function () {
+                this.style.border = '2px solid red';
+            };
+            //为每个div添加鼠标离开的事件
+            dvObjs[i].onmouseout = function () {
+                this.style.border = '';
+            };
+        }
+    </script>
+</body>
+
+</html>

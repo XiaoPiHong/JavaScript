@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-27 14:54:59
+ * @LastEditTime: 2020-03-27 15:03:16
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\62元素创建方法2.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="div中创建一个p" id="btn">
+    <div id="dv"></div>
+    <script>
+        //第二种方式创建元素: 对象.innerHTML="标签代码及内容";
+
+
+
+        document.getElementById('btn').onclick = function () {
+            document.getElementById('dv').innerHTML = '<p>我是p标签</p>';
+        };
+        /* 注意:
+        如果重复点击，是重新赋值的意思
+        */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-13 17:04:15
+ * @LastEditTime: 2020-07-03 16:10:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\26图片跟着鼠标飞案例.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+
+        body {
+            height: 2000px;
+        }
+    </style>
+    <!-- 该例子属于bom的client系列 -->
+</head>
+
+<body>
+    <img src="images/bird.png" alt="" id="im">
+    <script src="../common.js"></script>
+    <script>
+        // =========================================================第一步（针对的是可视区域，有bug，拉动滚动条会跑掉）
+        //鼠标在页面中移动,图片跟着鼠标移动
+        /* document.onmousemove = function (e) { //文档的鼠标移动事件
+            //鼠标的移动的横纵坐标
+            //e.clientX:可视区域的横坐标
+            //e.clientY:可视区域的纵坐标
+            my$("im").style.left = e.clientX + "px";
+            my$("im").style.top = e.clientY + "px";
+        }; */
+
+
+
+        //===========================================================第二部（针对的是可视区域，有bug，拉动滚动条会跑掉）
+        //文档的鼠标移动事件(document.onmousemove)
+        //(对象.事件=事件处理函数)-----事件触发了,函数的代码就会执行,执行的时候,函数调用的时候
+        /* document.onmousemove = function (e) {
+            //console.log(arguments.length); //通过arguments.length，可以得出:事件处理函数中实际上是有一个参数的,这个参数和事件有关系,是一个对象----->事件参数对象
+            console.log(arguments[0]);
+            console.log(e);
+        }; */
+        //谷歌和火狐中都有这个事件参数对象,IE8中没有
+        //事件参数对象:e----在IE8中用window.event来代替
+
+
+
+
+        //=============该例子谷歌、火狐可以用==================
+        /* document.onmousemove = function (e) {
+            //document.title=e.clientX+"===>"+e.clientY;
+            my$("im").style.left = e.clientX + "px";
+            my$("im").style.top = e.clientY + "px";
+        }; */
+        //===============该例子谷歌、ie8可以用====================
+        /*   document.onmousemove = function () {
+              //document.title=e.clientX+"===>"+e.clientY;
+              my$("im").style.left = window.event.clientX + "px";
+              my$("im").style.top = window.event.clientY + "px";
+          }; */
+        //==================该例子谷歌、火狐、ie8通用==============
+        /*      document.onmousemove = function (e) {
+                 e = window.event || e;
+                 my$("im").style.left = e.clientX + "px";
+                 my$("im").style.top = e.clientY + "px";
+             }; */
+
+
+
+        //===========================================================第三部（针对的是页面区域，即body，拉动滚动条不会跑掉）
+        // pageX:相对于页面左边的横坐标
+        // pageY: 相对于页面顶部的纵坐标
+        // pageX和pageY谷歌火狐可以用，ie8没有这个属性(不能用该属性)
+        document.onmousemove = function (e) {
+            my$('im').style.left = e.pageX + "px";
+            my$('im').style.top = e.pageY + "px";
+        }
+    </script>
+</body>
+
+
+</html>

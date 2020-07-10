@@ -1,0 +1,35 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 16:44:20
+ * @LastEditTime: 2020-03-19 16:50:46
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\41灵活应用小练习.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>这是p</p>
+    <input type="button" value="按钮" id="btn">
+    <script>
+        document.getElementById('btn').onclick = function () {
+            //获取p标签内容
+            console.log(document.getElementsByTagName('p')[0].innerText);
+            //获取input标签类型
+            console.log(document.getElementById('btn').type);
+            //获取input标签id
+            console.log(document.getElementById('btn').id);
+            //获取input标签value值
+            console.log(document.getElementById('btn').value);
+        };
+    </script>
+</body>
+
+</html>

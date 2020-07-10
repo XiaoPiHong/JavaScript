@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 18:38:53
+ * @LastEditTime: 2020-03-19 18:42:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\45自定义属性的设置和获取.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="uu">
+        <li>助教的数学成绩</li>
+        <li>班主任的成绩</li>
+        <li>小苏的成绩</li>
+        <li>小杰老师成绩</li>
+        <li>乔峰成绩</li>
+    </ul>
+    <script src="common.js"></script>
+    <script>
+        //总结:设置自定义属性:setAttribute("属性的名字","属性的值");---->两个参数
+        //总结：获取自定义属性的值:getAttribute("属性的名字");---->一个参数
+
+        //目的1：获取所有的li标签,然后为每个标签中动态的添加自定义属性和值
+        //目的2：点击的时候获取该标签的自定义属性的值
+
+        var list = my$("uu").getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++) {
+            //先为每个li添加自定义属性
+            //list[i].score=(i+1)*10;//此方式,自定义属性在DOM对象上,不在标签中
+            list[i].setAttribute("score", (i + 1) * 10);
+            //点击每个li标签,显示对应的自定义属性值
+            list[i].onclick = function () {
+                alert(this.getAttribute("score"));
+            };
+        }
+    </script>
+</body>
+
+</html>

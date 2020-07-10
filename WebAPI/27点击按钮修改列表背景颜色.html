@@ -1,0 +1,32 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-17 10:12:44
+ * @LastEditTime: 2020-03-17 10:14:32
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\27点击按钮修改列表背景颜色.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="变色" id="btn">
+    <ul id="ul1">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+        document.getElementById('btn').onclick = function () {
+            document.getElementById('ul1').style.backgroundColor = 'yellow';
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-30 10:58:48
+ * @LastEditTime: 2020-03-30 12:01:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git_rep\WebAPI\73为元素解绑事件.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //解绑事件:
+        /*
+        * 注意:用什么方式绑定事件,就应该用对应的方式解绑事件
+        * 1.解绑事件
+        * 对象.on事件名字=事件处理函数--->绑定事件
+        * 对象.on事件名字=null;
+        * 2.解绑事件(ie8不支持)
+        * 对象.addEventListener("没有on的事件类型",命名函数,false);---绑定事件
+        * 对象.removeEventListener("没有on的事件类型",函数名字,false);
+        * 3.解绑事件(谷歌、火狐不支持)
+        * 对象.attachEvent("on事件类型",命名函数);---绑定事件
+        * 对象.detachEvent("on事件类型",函数名字);
+        *
+        *
+        * */
+    </script>
+
+
+
+    <!-- 解绑事件方法1-----------------------为按钮1解绑事件 -->
+    <input type="button" value="按钮1" id="btn">
+    <input type="button" value="为按钮1解绑事件" id="btn2">
+    <script>
+        document.getElementById('btn').onclick = function () {
+            console.log('哈哈');
+        };
+        document.getElementById('btn2').onclick = function () {
+            document.getElementById('btn').onclick = null;
+        };
+    </script>
+
+
+
+
+
+    <!-- 解绑事件方2------------------------------为按钮2解绑事件1 -->
+    <input type="button" value="按钮3" id="btn3">
+    <input type="button" value="为按钮3解绑事件1" id="btn4">
+    <script>
+        function f1() {
+            console.log('事件1');
+        }
+        document.getElementById('btn3').addEventListener('click', f1, false);
+        document.getElementById('btn3').addEventListener('click', function () {
+            console.log('事件2');
+        }, false);
+        document.getElementById('btn4').onclick = function () {
+            //解绑事件的时候,需要在绑定事件的时候,使用命名函数,使用匿名函数的话解绑不了
+            document.getElementById('btn3').removeEventListener('click', f1, false);
+        };
+    </script>
+
+
+
+
+    <!-- 解绑事件方3------------------------------为按钮5解绑事件1 -->
+    <input type="button" value="按钮5" id="btn5">
+    <input type="button" value="为按钮5解绑事件1" id="btn6">
+    <script>
+        function f2() {
+            console.log('我是按钮5的事件1');
+        }
+        document.getElementById('btn5').attachEvent('onclick', f2);
+        document.getElementById('btn5').attachEvent('onclick', function () {
+            console.log('我是按钮5的事件2');
+        });
+        document.getElementById('btn6').onclick = function () {
+            //解绑事件的时候,需要在绑定事件的时候,使用命名函数,使用匿名函数的话解绑不了
+            document.getElementById('btn5').detachEvent('onclick', f2);
+        };
+    </script>
+
+</body>
+
+</html>

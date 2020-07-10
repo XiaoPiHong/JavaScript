@@ -1,0 +1,52 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 13:09:27
+ * @LastEditTime: 2020-03-19 14:21:17
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\35根据类样式名字获取元素.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: green;
+            margin-top: 10px;
+        }
+
+        .cls {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <span>第一个</span>
+    <span class="cls">第二个</span>
+    <div>第一个</div>
+    <div class="cls">第二个</div>
+    <p>第一个</p>
+    <p class="cls">第二个</p>
+    <input type="button" value="增加样式" id="btn">
+    <script>
+        /* 目的：点击按钮设置应用cls类样式的标签的背景颜色为红色 */
+        //getElementsByClassName();------>h5的方法，i9以下不兼容----->返回的也是一个元素对象伪数组
+
+
+        document.getElementById('btn').onclick = function () {
+            //根据类样式的名字来获取元素
+            var objs = document.getElementsByClassName('cls');
+            for (var i = 0; i < objs.length; i++) {
+                //设置每个元素的背景颜色
+                objs[i].style.backgroundColor = 'red';
+            }
+        };
+    </script>
+</body>
+
+</html>

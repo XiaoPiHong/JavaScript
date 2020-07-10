@@ -1,0 +1,90 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-30 14:58:49
+ * @LastEditTime: 2020-03-30 16:03:28
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git_rep\WebAPI\76阻止事件的冒泡.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="common.js"></script>
+    <style>
+        #dv1 {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #dv2 {
+            width: 250px;
+            height: 150px;
+            background-color: green;
+        }
+
+        #dv3 {
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv1">
+        <div id="dv2">
+            <div id="dv3"></div>
+        </div>
+    </div>
+    <script>
+        //阻止事件冒泡:
+        /*  如何阻止事件冒泡: 
+        1.window.event.cancelBubble=true; IE特有的,谷歌支持,火狐不支持
+ 
+        2.e.stopPropagation(); 谷歌和火狐支持, */
+
+
+
+
+        // 例子：
+        my$("dv1").onclick = function (e) {
+            console.log(this.id);
+            e.stopPropagation();//阻止了#div1下面的标签冒泡，也就是阻止了body冒泡
+        };
+        my$("dv2").onclick = function () {
+            console.log(this.id);
+            window.event.cancelBubble = true;//阻止了#div2下面的标签冒泡，也就是阻止了body和#div1冒泡
+        };
+        my$("dv3").onclick = function (e) {
+            console.log(this.id);
+        };
+        document.body.onclick = function () {
+            console.log("颤抖吧,你们这些愚蠢的标签");
+        };
+
+
+        // 下面是推理：
+        addEventListener(my$('dv1'), 'click', function () {
+            console.log(arguments.length);//1              //arguments.length可以知道这个方法有多少个参数，所以说明是有参数的
+        });
+
+        addEventListener(my$('dv1'), 'click', function (e) {
+            console.log(e);//谷歌、火狐返回是一个对象，ie8是undefined（即：ie8函数里面没有这个参数，所以没有这个对象）
+        });
+
+
+
+        /* 总结：
+        1.若浏览器支持这个参数，则用   e.stopPropagation(); 来阻止事件冒泡
+
+        2.若不支持这个参数，则用  window.event.cancelBubble=true;  来阻止事件冒泡
+        */
+    </script>
+</body>
+
+</html>

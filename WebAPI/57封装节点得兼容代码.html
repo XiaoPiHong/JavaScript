@@ -1,0 +1,119 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-25 09:29:50
+ * @LastEditTime: 2020-03-25 10:05:55
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\57封装节点得兼容代码.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="uu">
+        <li>第一个li</li>
+        <li>第二个li</li>
+        <li id="three">第三个li</li>
+        <li>第四个li</li>
+        <li>第五个li</li>
+    </ul>
+    <script>
+        /*
+        注意：
+        1.学习节点操作目的是为了操作元素
+
+        2.第一个节点和第一个元素的获取的代码在IE8中可能不支持（所以要封装）---->目的：获取任意一个父级元素的第一个子级元素
+
+        3.最后一个节点和最后一个元素的获取的代码在IE8中可能不支持（所以要封装）--->目的：获取任意一个父级元素的最后一个子级元素
+
+        4.前一个节点和前一个元素的获取的代码在IE8中可能不支持（所以要封装）--->目的：获取任意一个元素的前一个兄弟元素
+
+        5.后一个节点和后一个元素的获取的代码在IE8中可能不支持（所以要封装）--->目的：获取任意一个元素的后一个兄弟元素
+        */
+
+
+
+
+        //2.获取任意一个父级元素的第一个子级元素
+        var ulObj = document.getElementById('uu');
+        function getFirstElementChild(element) {
+            if (element.firstElementChild) {//true--->支持
+                return element.firstElementChild;
+            } else {
+                var node = element.firstChild;//第一个节点
+                while (node && node.nodeType != 1) {
+                    node = node.nextSibling;
+                }
+                return node;
+            }
+        }
+        console.log(getFirstElementChild(ulObj).innerText);
+
+
+
+
+
+
+        //3.获取任意一个父级元素的最后一个子级元素
+        function getLastElementChild(element) {
+            if (element.lastElementChild) {//true--->支持
+                return element.lastElementChild;
+            } else {
+                var node = element.lastChild;//第一个节点
+                while (node && node.nodeType != 1) {
+                    node = node.previousSibling;
+                }
+                return node;
+            }
+        }
+        console.log(getLastElementChild(ulObj).innerText);
+
+
+
+
+
+
+
+        //4.获取任意一个元素的前一个兄弟元素
+        var threeObj = document.getElementById('three');
+        function getPreviousElement(element) {
+            if (element.previousElementSibling) {//true--->支持
+                return element.previousElementSibling;
+            } else {
+                var node = element.previousSibling;//前一个兄弟节点
+                while (node && node.nodeType != 1) {
+                    node = node.previousSibling;
+                }
+            }
+            return node;
+        }
+        console.log(getPreviousElement(threeObj).innerText);
+
+
+
+
+
+
+        //5.获取任意一个元素的后一个兄弟元素
+        function getNextElement(element) {
+            if (element.nextlementSibling) {//true--->支持
+                return element.nextlementSibling;
+            } else {
+                var node = element.nextSibling;//后一个兄弟节点
+                while (node && node.nodeType != 1) {
+                    node = node.nextSibling;
+                }
+            }
+            return node;
+        }
+        console.log(getNextElement(threeObj).innerText);
+    </script>
+</body>
+
+</html>

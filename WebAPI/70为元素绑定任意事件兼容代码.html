@@ -1,0 +1,65 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-27 22:12:23
+ * @LastEditTime: 2020-03-27 22:34:20
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\70为元素绑定事件兼容代码.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn" />
+    <script src="common.js"></script>
+    <script>
+        //为任意元素.绑定任意的事件, 任意的元素,事件的类型,事件处理函数
+        function addEventListener(element, type, fn) {
+            /*判断浏览器是否支持这个方法，直接===>对象.方法名,这样判断的是这个方法的类型，
+            如：undefined；而不是===>对象.方法名(),因为这样判断的是方法的返回值 */
+            if (element.addEventListener) {
+                element.addEventListener(type, fn, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, fn);
+            } else {
+                element["on" + type] = fn;
+            }
+        }
+
+
+        //配合理解的例子：
+        function Person(name) {
+            this.name = name;
+            this.sayHi = function () {
+                console.log("您好啊");
+            };
+        }
+        var per = new Person("小明");
+        if (per.sayHii) {//判断这个对象中有没有这个方法
+            per.sayHii();
+        } else {
+            console.log("没有这个方法");
+        }
+
+
+
+        //演示：在ie8、火狐、谷歌都可以为同个元素绑定多个相同的事件
+        addEventListener(my$("btn"), "click", function () {
+            console.log("哦1");
+        });
+        addEventListener(my$("btn"), "click", function () {
+            console.log("哦2");
+        });
+        addEventListener(my$("btn"), "click", function () {
+            console.log("哦3");
+        });
+    </script>
+</body>
+
+</html>

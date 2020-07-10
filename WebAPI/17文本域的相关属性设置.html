@@ -1,0 +1,45 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-15 21:38:58
+ * @LastEditTime: 2020-03-15 22:20:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\17文本域的相关属性设置.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1.html中属性和值是自己的,并且只有一个的,其实,可以只写这个属性,不用赋值，如： -->
+    <input type="button" value="disabled例子" disabled>
+
+    <!-- 2.disabled='disabled';意思是该元素不可用的意思，要是只想设置文本域的内容不可修改（只可读），也可以用
+    readonly='readonly'; -->
+    <textarea name="" id="tx1" cols="30" rows="10" readonly>
+        某人问智者,
+        大师:您觉得怎么做才是最快乐的?
+        回答说:不要和愚者辩论
+        这个人说:我不这么认为!
+        大师说:您说的对。
+    </textarea>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        my$('tx1').onclick = function () {
+            my$('tx1').value = '哈哈';//修改文本域内容
+            // my$('tx1').innerText = '哈哈';//也是修改文本域内容
+        };
+        /* 3.推荐用value修改文本域内容,因为把它看成了是表单的标签 */
+        /* 4.用value在元素窗口可以看到该标签的内容还是原始内容 */
+        /* 5.用innerText在元素窗口可以看到该标签的内容是修改后的内容 */
+    </script>
+</body>
+
+</html>

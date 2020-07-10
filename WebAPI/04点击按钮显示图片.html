@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-11 20:31:14
+ * @LastEditTime: 2020-03-11 21:27:41
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\04点击按钮显示图片.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="btn" value="获取图片">
+    <img src="" id="im">
+    <script>
+        //案例：点击按钮显示图片:点击按钮的时候设置img标签的src属性有一个图片的路径
+
+
+        //1.根据id获取按钮
+        var btnObj = document.getElementById('btn');
+        //2.为按钮注册点击事件，添加事件处理函数
+        btnObj.onclick = function () {
+            //3，根据id获取图片的标签，并设置图片的src属性值
+            var imgObj = document.getElementById('im');
+            imgObj.src = "images/3.jpg";
+            //4.设置图片的大小
+            imgObj.width = "250";//width和height是js中图片的属性，不需要加单位，但是写style时需要加单位，因为是css样式
+            imgObj.height = "400";
+        };
+    </script>
+</body>
+
+</html>

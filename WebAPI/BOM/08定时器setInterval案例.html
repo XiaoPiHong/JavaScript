@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-29 12:41:43
+ * @LastEditTime: 2020-04-29 14:57:47
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \WebAPI\BOM\08定时器setInterval案例.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            position: absolute;
+        }
+
+        #box img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="摇起来" id="btn">
+    <input type="button" value="点击停止" id="clear">
+    <div id="box">
+        <img src="images/heihei.jpg" alt="">
+        <img src="images/heihei2.jpg" alt="">
+    </div>
+    <script>
+        var timeId = '';//如果在里面声明就是局部变量，外面不可以使用，所以在外面声明
+        document.getElementById('btn').onclick = function () {
+            timeId = window.setInterval(function () {
+                //随机数
+                var x = parseInt(Math.random() * 100 + 1);
+                var y = parseInt(Math.random() * 100 + 1);
+                //设置元素的left和top属性值
+                document.getElementById('box').style.left = x + 'px';
+                document.getElementById('box').style.top = y + 'px';
+
+            }, 1000);
+        };
+        document.getElementById('clear').onclick = function () {
+            //清除计时器
+            window.clearInterval(timeId);
+        };
+    </script>
+</body>
+
+</html>

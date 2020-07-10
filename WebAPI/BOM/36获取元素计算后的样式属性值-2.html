@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-19 11:05:28
+ * @LastEditTime: 2020-05-19 11:17:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\36获取元素计算后的样式属性值-2.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #dv {
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+            left: 100px;
+        }
+    </style>
+    <script src="../common.js"></script>
+</head>
+
+<body>
+    <input type="button" value="显示效果" id="btn">
+    <div id="dv"></div>
+    <script>
+        //1.这里没有在style标签里设置top属性，不同浏览器获取到的值不同，有的显示auto，有的显示0px
+        console.log(getStyle(my$('dv'), 'top')); //auto
+
+        //2.但是在style标签里设置了top属性，一定显示该属性的值，不会显示auto
+    </script>
+</body>
+
+</html>

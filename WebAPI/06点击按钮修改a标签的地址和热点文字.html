@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-11 21:38:06
+ * @LastEditTime: 2020-03-11 22:32:02
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\06点击按钮修改a标签的地址和热点文字.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="修改标签地址和热点文字" id="btn">
+    <a href="https://www.jiumodiary.com/" id="a1">鸠摩搜书</a>
+    <script>
+        // 案例：点击按钮修改a标签的地址和热点文字（内容）
+
+
+
+
+        //根据id获取按钮，注册点击事件，添加事件处理函数
+        document.getElementById('btn').onclick = function () {
+            //根据id获取超链接，设置href属性
+            document.getElementById('a1').href = 'http://www.hao123.com';
+            //根据id获取超链接，设置文字内容
+            document.getElementById('a1').innerText = 'hao123';
+        };
+
+
+
+        // 优化后的（优化就是减轻浏览器的负担）
+        /* document.getElementById('btn').onclick = function () { }
+        var aObj = document.getElementById('a1');
+        aObj.href = 'http://www.hao123.com';
+        aObj.innerText = 'hao123'; */
+        ;
+    </script>
+</body>
+
+</html>

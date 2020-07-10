@@ -1,0 +1,40 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-14 22:02:33
+ * @LastEditTime: 2020-03-14 22:40:46
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\14点击按钮修改图片.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 定义一个函数，获取该元素并返回该元素的对象 -->
+    <input type="button" value="点击按钮更改图片" id="btn">
+    <img src="images/big.jpg" id="im">
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+
+
+        my$('btn').onclick = function () {
+            my$('im').src = 'images/3.jpg'
+        };
+    </script>
+</body>
+
+</html>

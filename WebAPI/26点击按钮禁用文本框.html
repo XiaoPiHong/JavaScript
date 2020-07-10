@@ -1,0 +1,30 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-17 10:04:59
+ * @LastEditTime: 2020-03-17 10:09:46
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\26点击按钮禁用文本框.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="点击禁用文本框" id="btn">
+    <input type="text" name="" id="tx1">
+    <script>
+        //先根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+        document.getElementById('btn').onclick = function () {
+            //根据id获取文本框,设置disabled属性
+            document.getElementById('tx1').disabled = true;
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-28 21:18:45
+ * @LastEditTime: 2020-04-28 21:19:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \WebAPI\BOM\05history-test.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="后退" id="btn" />
+    <script src="../common.js"></script>
+    <script>
+        //后退
+        my$("btn").onclick = function () {
+            window.history.back();
+        };
+    </script>
+</body>
+
+</html>

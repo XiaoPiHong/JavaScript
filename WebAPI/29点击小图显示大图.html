@@ -1,0 +1,30 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-17 15:41:23
+ * @LastEditTime: 2020-03-17 15:47:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\29点击小图显示大图.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="images/big.jpg" id="ak"><img src="images/3.jpg" alt=""></a>
+    <img src="" alt="" id="img">
+    <script>
+        document.getElementById('ak').onclick = function () {
+            document.getElementById('img').src = this.href;
+            //阻止超链接跳转
+            return false;
+        };
+    </script>
+</body>
+
+</html>

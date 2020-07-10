@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-14 12:39:39
+ * @LastEditTime: 2020-03-14 21:14:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\13按钮的排他功能.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <script>
+        //获取所有的按钮,分别注册点击事件
+        var inputs = document.getElementsByTagName('input');
+        //循环遍历所有的按钮
+        for (var i = 0; i < inputs.length; i++) {
+            //为每个按钮都要注册点击事件
+            inputs[i].onclick = function () {
+                //把所有的按钮的value值设置为默认的值:没怀孕
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs[i].value = '没怀孕';
+                }
+                //当前被点击的按钮设置为:怀孕了
+                this.value = '怀孕了';  //此处不能写inputs[i].value='怀孕了';下面来解释
+            };
+        }
+
+
+
+
+        //1.外部的for循环是打开文档就执行了，给每个按钮注册点击事件和添加事件处理函数，但是事件处理函数是不会执行的
+        //2.当点击后，触发调用了函数，里面的for循环执行了，执行完后，i的值是等于inputs.length的，所以不是点击的那个按钮
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-08 17:41:51
+ * @LastEditTime: 2020-05-08 17:47:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\15定时器案例div的渐变.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv"></div>
+    <input type="button" value="渐变" id="btn">
+    <script>
+        document.getElementById('btn'), onclick = function () {
+            var time = 10;
+            var timeId = setInterval(function () {
+                time--;
+                if (time <= 0) {
+                    clearInterval(timeId);
+                }
+                document.getElementById('dv').style.opacity = time / 10;
+            }, 200);
+        };
+    </script>
+</body>
+
+</html>

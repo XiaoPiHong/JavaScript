@@ -1,0 +1,32 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-13 16:55:28
+ * @LastEditTime: 2020-05-15 21:42:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\25直接通过document获取元素.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //获取body
+        console.log(document.body); //获取的是元素--标签
+
+        //获取title
+        console.log(document.title); //标签中的值
+        document.title = "嘎嘎去"; //修改title内容
+
+        //获取html，并不是document.html
+        console.log(document.documentElement);
+    </script>
+</body>
+
+</html>

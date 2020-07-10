@@ -1,0 +1,30 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-14 21:44:39
+ * @LastEditTime: 2020-03-19 11:04:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\webAPI(资料)\点击图片修改路径.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="images/3.jpg" id="ak"><img src="images/big.jpg" alt="" id="im"></a>
+    <script>
+        var imgObj = document.getElementById('im');
+        imgObj.onclick = function () {
+            imgObj.src = document.getElementById('ak').href;
+            //写了return false;  a标签才不会跳转
+            return false;
+        };
+    </script>
+</body>
+
+</html>

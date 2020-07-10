@@ -1,0 +1,86 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-18 14:46:49
+ * @LastEditTime: 2020-05-18 16:05:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\31封装getScroll()函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //================重要=====================================================
+        /* 1.这里开始封装的函数都封装在对象中，直接用  该对象.该方法/属性  就可以调用该属性/方法
+        
+            2.不同的浏览器获取卷曲出去距离的方式不同（兼容问题）所以需要---window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0---这种写法，0是为了就是所以方式不支持叶不报错，但是返回0
+
+
+            3.下面的是封装getScroll()函数的推论过程:
+         */
+
+
+
+
+        //获取浏览器向上卷曲出去的距离的值,向左卷曲出去的距离
+        //第一次封装
+        /*     function getScroll() {
+              var obj={};
+              var top1=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0;
+              var left=window.pageXOffset||document.documentElement.scrollLeft||document.body.scrollLeft||0;
+              obj.left=left;
+              obj.top=top1;
+              return obj;
+            } */
+
+
+        //第二次封装
+        /*   function getScroll() {
+              var obj = {};
+              obj.left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft||0;
+              obj.top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+              return obj;
+          } */
+
+
+        //第三次封装
+        /*  function getScroll() {
+             var obj = {
+                 left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft||0,
+                 top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+             };
+             return obj;
+         } */
+
+
+        // 第四次封装
+        //====================这是最终的封装getScroll()函数代码==============================
+        function getScroll() {
+            return {
+                left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+                top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+            };
+        }
+
+
+        //测试该方法
+        window.onscroll = function () {
+            console.log(getScroll().top)
+        };
+    </script>
+</body>
+
+</html>

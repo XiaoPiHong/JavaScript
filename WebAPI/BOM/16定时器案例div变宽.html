@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-08 19:14:24
+ * @LastEditTime: 2020-05-09 12:35:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\16定时器案例div变宽.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv {
+            background-color: hotpink;
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv"></div>
+    <input type="button" value="点击变宽" id="btn">
+    <script>
+        document.getElementById('btn').onclick = function () {
+            var width = 50;
+            var timeId = setInterval(function () {
+                width += 30;
+                if (width == 800) {
+                    clearInterval(timeId);
+                }
+                document.getElementById('dv').style.width = width + 'px';
+            }, 300);
+        };
+    </script>
+</body>
+
+</html>

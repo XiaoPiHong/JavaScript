@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-18 23:02:37
+ * @LastEditTime: 2020-03-18 23:10:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\32鼠标进入和移出事件.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <script>
+        /* 一共有鼠标进入和鼠标离开两个事件 */
+        //获取所有li标签
+        var lisObj = document.getElementsByTagName('li');
+        for (var i = 0; i < lisObj.length; i++) {
+            // 为li注册鼠标进入事件
+            lisObj[i].onmouseover = function () {
+                this.style.backgroundColor = 'red';
+            };
+            // 为li注册鼠标离开事件
+            lisObj[i].onmouseout = function () {
+                // 恢复到这个标签默认的颜色
+                this.style.backgroundColor = '';
+            };
+        }
+    </script>
+</body>
+
+</html>

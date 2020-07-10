@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-19 18:50:05
+ * @LastEditTime: 2020-03-19 19:00:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \webAPI(资料)\46移除元素的自定义属性.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .cls {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="移除元素的自定义属性" id="btn">
+    <div id="dv" score='10' class="cls"></div>
+    <script src="common.js"></script>
+    <script>
+        //总结：移除自定义属性:removeAttribute("属性的名字")
+        my$('btn').onclick = function () {
+            //移除元素的自定义属性，属性和值都移除
+            my$('dv').removeAttribute('score');
+
+            //值没有了,但是属性还是有的，调式窗可以观看
+            //my$("dv").className = "";
+
+            //也可以移除元素的自带的属性，属性和值都移除
+            my$('dv').removeAttribute('class');
+        };
+    </script>
+</body>
+
+</html>

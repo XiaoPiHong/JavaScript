@@ -1,0 +1,41 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-03 23:11:14
+ * @LastEditTime: 2020-07-03 23:18:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\WebAPI\BOM\51图片跟着鼠标移动案例注意事项.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            position: absolute;
+            border: 1px solid red;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/bird.png" alt="" id="im">
+    <script src="../common.js"></script>
+    <script>
+        document.onmousemove = function (e) {
+            my$('im').style.left = e.clientX + "px";
+            my$('im').style.top = e.clientY + "px";
+        }; //此处因为这个img有个100px的左外边距，所以图片会离鼠标远100px
+    </script>
+</body>
+
+</html>
