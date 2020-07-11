@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-11 11:19:36
+ * @LastEditTime: 2020-07-11 13:38:10
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\23bind()方法.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (function () {
+            var that = null; //该变量是为了保存Person的实例对象
+
+            function Person(age) {
+                this.age = age;
+                that = this;
+            }
+            Person.prototype.show = function () {
+                var timeId = setInterval(function () {
+                    console.log(this); //Window对象
+                    console.log(window); //Window对象
+                }.bind(that), 2000);
+            };
+            window.Person = Person; //将人的对象暴露给window成为全局变量
+        }());
+        var per = new Person(11);
+        per.show();
+
+
+        /* 总结bind()方法：
+        本来setInterval(function () {},1500);函数里面的this是Window的，但是
+        用了bind(that)方法之后就变成了Person-------->此处知道就行了，后面会解释
+         */
+    </script>
+</body>
+
+</html>

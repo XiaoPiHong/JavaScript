@@ -1,0 +1,30 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-11 14:16:38
+ * @LastEditTime: 2020-07-11 14:46:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\24键盘按下事件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  document.onkeydown = function () {
+            console.log(arguments[0]); //arguments是该事件的参数
+        }; */
+        //页面的任何的位置.按下键盘,获取按键的值
+        document.onkeydown = function (e) {
+            console.log(e.keyCode); //事件参数对象
+        };
+    </script>
+</body>
+
+</html>
