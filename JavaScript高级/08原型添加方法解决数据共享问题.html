@@ -1,0 +1,41 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-08 00:14:33
+ * @LastEditTime: 2020-07-08 10:42:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\08原型添加方法解决数据共享问题.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        //通过原型来添加方法,解决数据共享,节省内存空间
+        Person.prototype.eat = function () {
+            console.log("吃凉菜");
+        };
+        var per1 = new Person("张三", 21);
+        var per2 = new Person("李四", 22);
+
+        console.log(per1 == per2); //false,说明它们不是同个对象
+        console.log(per1.eat == per2.eat); //true,说明只开辟了一个空间，共用eat方法，实现了数据共享，节省内存
+        console.dir(Person);
+
+
+        console.dir(per1); //该实例对象中根本没有eat方法,但是能够使用,这是为什么?---->因为实例对象的原型对象__proto__指向了构造函数的原型对象prototype
+        console.dir(per2); //该实例对象中根本没有eat方法,但是能够使用,这是为什么?---->因为实例对象的原型对象__proto__指向了构造函数的原型对象prototype
+    </script>
+</body>
+
+</html>

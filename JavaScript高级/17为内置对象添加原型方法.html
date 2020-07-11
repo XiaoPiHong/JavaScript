@@ -1,0 +1,90 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-09 22:46:22
+ * @LastEditTime: 2020-07-09 23:19:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\17为内置对象添加原型方法.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* //例子1
+        var arr = new Array(10, 20, 30, 40, 50);
+        arr.join("|");
+        console.dir(arr);
+
+        //例子2
+        var str = new String("哦,唛嘎的");
+        str.indexOf("哦");
+        console.dir(str);
+
+        //例子3
+        var dt = new Date();
+        dt.getFullYear();
+        console.dir(dt); */
+
+        //上面的例子都说明：
+        //1.实例中的方法如果没有, 去创建该实例对象的构造函数的原型对象中找
+        //2.许多实例对象调用的方法其实实例对象本身是没有的，而是在他的构造函数的原型对象中的
+
+
+
+        //=================================================================================
+        //===========================为内置对象添加原型方法==================================
+
+
+        //我们能否为系统的对象的原型中添加方法,相当于在改变源码
+        //例子1：我希望字符串中有一个倒序字符串的方法
+        String.prototype.myReverse = function () {
+            for (var i = this.length - 1; i >= 0; i--) {
+                console.log(this[i]);
+            }
+        };
+        var str = "abcdefg";
+        str.myReverse();
+
+
+
+
+
+        //例子2：为Array内置对象的原型对象中添加降序方法
+        Array.prototype.mySort = function () {
+            for (var i = 0; i < this.length - 1; i++) {
+                for (var j = 0; j < this.length - 1 - i; j++) {
+                    if (this[j] < this[j + 1]) {
+                        var temp = this[j];
+                        this[j] = this[j + 1];
+                        this[j + 1] = temp;
+                    } //end if
+                } // end for
+            } //end for
+        };
+
+
+
+
+
+        //例子3：为String内置对象的原型对象中添加打招呼方法
+        var arr = [100, 3, 56, 78, 23, 10];
+        arr.mySort();
+        console.log(arr);
+
+        String.prototype.sayHi = function () {
+            console.log(this + "哈哈,我又变帅了");
+        };
+        //字符串就有了打招呼的方法
+        var str2 = "小杨";
+        str2.sayHi();
+    </script>
+</body>
+
+</html>

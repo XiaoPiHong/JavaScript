@@ -1,0 +1,67 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-07 19:10:35
+ * @LastEditTime: 2020-07-07 23:29:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\07构造函数创建对象带来的问题.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //第一部分--------------------------------------------------
+        /* function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.eat = function () {
+                console.log("今天吃红烧土豆");
+            }
+        }
+        var per1 = new Person("小白", 20);
+        var per2 = new Person("小黑", 30);
+        console.log(per1.eat == per2.eat); //false,因为它们不是同一个方法，per1和per2是两个不同的实例对象，属性也是不一样的
+        console.dir(per1);
+        console.dir(per2); */
+
+
+
+
+        //第二部分--------------------------------------------------
+        /* for (var i = 0; i < 100; i++) {
+            var per = new Person("嘎嘎", 20);
+            per.eat(); //因为不是同一个方法，所以这样调用会创建100个实例对象，且每个对象都开辟1个空间来存储这个方法，浪费空间
+        } */
+
+
+
+
+        //第三部分--------------------------------------------------
+        // 为了调用的时候都是调用同一个方法，用下面的方法
+        function myEat() {
+            console.log("吃大榴莲");
+        }
+        var myEat = 10;
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.eat = myEat;
+        }
+        var per1 = new Person("小白", 20);
+        var per2 = new Person("小黑", 30);
+        console.log(per1.eat == per2.eat); //true
+        // 总结：
+        // 上面例子通过原型来解决了问题(但是并不是上面的写法,上面的写法容易造成命名冲突)
+        // 原型的作用：---------达到了数据共享,节省内存空间的作用(原型作用之一)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-10 00:17:43
+ * @LastEditTime: 2020-07-10 00:19:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\19把随机数对象暴露给window成为全局变量.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //通过自调用函数产生一个随机数对象,在自调用函数外面,调用该随机数对象方法产生随机数
+        (function (window) {
+            //产生随机数的构造函数
+            function Random() {}
+            //在原型对象中添加方法
+            Random.prototype.getRandom = function (min, max) {
+                return Math.floor(Math.random() * (max - min) + min);
+            };
+            //把Random对象暴露给顶级对象window--->外部可以直接使用这个对象
+            window.Random = Random;
+        })(window);
+        //实例化随机数对象
+        var rm = new Random();
+        //调用方法产生随机数
+        console.log(rm.getRandom(0, 5)); //0到5之间的随机数
+    </script>
+</body>
+
+</html>

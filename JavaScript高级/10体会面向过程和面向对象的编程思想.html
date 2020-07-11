@@ -1,0 +1,92 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-08 09:35:56
+ * @LastEditTime: 2020-07-08 10:04:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\10体会面向过程和面向对象的编程思想.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv1 {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="btn" value="显示效果">
+    <div id="dv1"></div>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+    </script>
+    <script>
+        //要求：点击按钮改变div的背景颜色
+
+        //1.面向过程编程思想
+        /*  document.getElementById('btn').onclick = function () {
+             document.getElementById('dv1').style.backgroundColor = 'red';
+         }; */
+
+
+
+
+
+        //2.面向对象编程思想-----初级的
+        /* function ChangeStyle(btnId, dvId, color) {
+            this.btnObj = document.getElementById(btnId);
+            this.dvObj = document.getElementById(dvId);
+            this.color = color;
+        }
+        //用原型达到数据共享，来改变背景颜色
+        ChangeStyle.prototype.init = function () {
+            //console.log(this);//就是实例对象---就是当前对象
+            var that = this; //用that是因为下面的事件的this是btnObj，所以不能使用this，要用that
+            this.btnObj.onclick = function () {
+                that.dvObj.style.backgroundColor = that.color;
+            };
+        };
+        //实例化对象
+        var cs = new ChangeStyle("btn", "dv1", "yellow");
+        cs.init(); */
+
+
+
+        //3.面向对象编程思想-----高级的
+        function ChangeStyle(btnObj, dvObj, json) {
+            this.btnObj = btnObj;
+            this.dvObj = dvObj;
+            this.json = json;
+        }
+        ChangeStyle.prototype.init = function () {
+            //点击按钮,改变div多个样式属性值
+            var that = this;
+            this.btnObj.onclick = function () { //按钮
+                for (var key in that.json) {
+                    that.dvObj.style[key] = that.json[key]; //这里一定要style[key]的写法
+                }
+            };
+        };
+        var json = {
+            "width": "500px",
+            "height": "800px",
+            "backgroundColor": "blue",
+            "opacity": "0.1"
+        };
+        //实例化对象
+        var cs = new ChangeStyle(my$("btn"), my$("dv1"), json);
+        cs.init(); //调用方法
+    </script>
+</body>
+
+</html>

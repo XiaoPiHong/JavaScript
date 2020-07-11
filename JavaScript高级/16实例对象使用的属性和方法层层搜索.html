@@ -1,0 +1,40 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-08 15:53:48
+ * @LastEditTime: 2020-07-08 16:21:23
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\16实例对象使用的属性和方法层层搜索.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Pesron(age, sex) {
+            this.age = age;
+            this.sex = sex;
+            /* this.eat = function () {
+                console.log('构造函数创建的实例对象中吃')
+            }; */
+        }
+        Pesron.prototype.eat = function () {
+            console.log('原型对象中的吃')
+        };
+        var per = new Pesron(30, '男');
+        console.dir(per);
+        per.eat();
+
+        /*总结：
+         * 实例对象使用的属性或者方法,先在实例中查找,找到了则直接使用,找不到则,去实例对象的__proto__指向的原型对象prototype中找,找到了则使用,找不到则报错
+         * */
+    </script>
+</body>
+
+</html>
