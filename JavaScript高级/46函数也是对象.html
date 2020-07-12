@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-12 15:31:56
+ * @LastEditTime: 2020-07-12 15:52:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\46函数也是对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //函数是对象,对象不一定是函数
+
+        //学了这么久可以看出：对象中都有__proto__原型----所以是对象
+        //学了这么久可以看出：函数中都有prototype原型----所以是对象
+
+        function F1() {}
+
+        console.dir(F1);
+
+        console.dir(Math); //中有__proto__,但是没有prorotype，所以Math是对象，但不是函数
+
+        //===============================================================================
+
+        //所有的函数实际上都是Function的构造函数创建出来的实例对象
+        var f1 = new Function("num1", "num2", "return num1+num2");
+        console.log(f1(10, 20)); //30
+        console.log(f1.__proto__ == Function.prototype); //true
+        console.dir(Function); //Function对象
+        //所以,函数实际上也是对象
+
+
+        //总结：
+        //1.对象中有__proto__, 函数中应该有prototype
+        //2.如果一个东西里面有prototype，又有__proto__,说明是函数,也是对象
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-12 14:14:50
+ * @LastEditTime: 2020-07-12 14:17:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\38拷贝继承.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person() {}
+        Person.prototype.age = 10;
+        Person.prototype.sex = "男";
+        Person.prototype.height = 100;
+        Person.prototype.play = function () {
+            console.log("玩的好开心");
+        };
+        var obj2 = {};
+        //Person的构造中有原型prototype,prototype就是一个对象,那么里面,age,sex,height,play都是该对象中的属性或者方法
+
+        for (var key in Person.prototype) {
+            obj2[key] = Person.prototype[key];
+        } //这里就是拷贝
+        console.dir(obj2);
+        obj2.play();
+    </script>
+</body>
+
+</html>

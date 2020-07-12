@@ -1,0 +1,54 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-12 13:58:55
+ * @LastEditTime: 2020-07-12 14:01:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\37组合继承.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //原型实现继承
+        //借用构造函数实现继承
+        //组合继承:原型继承+借用构造函数继承
+
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        Person.prototype.sayHi = function () {
+            console.log("阿涅哈斯诶呦");
+        };
+
+        function Student(name, age, sex, score) {
+            //借用构造函数:属性值重复的问题
+            Person.call(this, name, age, sex);
+            this.score = score;
+        }
+        //改变原型指向----继承
+        Student.prototype = new Person(); //不传值
+        Student.prototype.eat = function () {
+            console.log("吃东西");
+        };
+        var stu = new Student("小黑", 20, "男", "100分");
+        console.log(stu.name, stu.age, stu.sex, stu.score); //父级类别中的属性也能调用了
+        stu.sayHi(); //父级类别中的方法也能调用了
+        stu.eat(); //自己的方法也可以调用了
+
+
+
+        //最后：属性和方法都被继承了
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-12 14:52:26
+ * @LastEditTime: 2020-07-12 14:56:47
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\42函数的声明和函数表达式的区别.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数声明
+        /*    if (true) {
+               function f1() {
+                   console.log("哈哈,我又变帅了");
+               }
+           } else {
+               function f1() {
+                   console.log("小苏好猥琐");
+               }
+           }
+           f1(); //在谷歌、火狐中：哈哈,我又变帅了(ie8中是小苏好猥琐) */
+
+
+        //函数表达式
+        var ff;
+        if (true) {
+            ff = function () {
+                console.log("哈哈,我又变帅了");
+            };
+        } else {
+            ff = function () {
+                console.log("小苏好猥琐");
+            };
+        }
+        ff(); //哈哈,我又变帅了（谷歌、火狐、ie8中都是）
+
+        //函数声明如果放在if-else的语句中,在IE8的浏览器中会出现问题
+        //以后宁愿用函数表达式,都不用函数声明
+    </script>
+</body>
+
+</html>

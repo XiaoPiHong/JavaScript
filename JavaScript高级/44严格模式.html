@@ -1,0 +1,34 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-12 15:12:28
+ * @LastEditTime: 2020-07-12 15:17:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\44严格模式.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //严格模式:
+        "use strict"; //严格模式
+        function f1() {
+            console.log(this); //window
+        }
+        f1();
+
+
+        //总结： 
+        //1.严格模式就是 "use strict";  这行代码，如果一开始就要使用它，就在script标签里面刚开始就写
+        //2.写了严格模式，函数或则方法一定要有人调用，否则就是undefined，而且每个分号都要写
+    </script>
+</body>
+
+</html>
