@@ -1,0 +1,84 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-13 11:52:15
+ * @LastEditTime: 2020-07-13 12:08:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\56高阶函数之函数作为返回值使用.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //例子1：
+        /*  function f1() {
+             console.log("f1函数开始");
+             return function () {
+                 console.log("我是函数,但是此时是作为返回值使用的");
+             }
+         }
+         var ff = f1();
+         ff(); */
+
+
+
+        //理解：
+        var num = 10;
+        var obj = {}; //对象
+        //获取num这个变量的数据类型
+        console.log(typeof num);
+        //判断这个对象是不是某个类型的
+        console.log(obj instanceof Object);
+        //获取某个对象的数据类型的样子
+        //Object.prototype.toString.call(对象);//此时得到的就是这个对象的类型的样子
+
+
+
+        //例子2：
+        //此时输出的是Object的数据类型   [object Object]
+        console.log(Object.prototype.toString());
+        //输出的数组的数据类型      [object Array]
+        console.log(Object.prototype.toString.call([]));
+        //输出的日期的数据类型      [object Date]
+        console.log(Object.prototype.toString.call(new Date()));
+
+
+
+
+        // 例子3：
+        //获取某个对象的类型是不是你传入的类型
+        //[10,20,30] 是不是"[object Array]"
+        //type---是变量----是参数----"[object Array]"
+        //obj---是变量-----是参数----[10,20,30];
+
+        //判断这个对象和传入的类型是不是同一个类型
+        function getFunc(type) {
+            return function (obj) {
+                return Object.prototype.toString.call(obj) === type;
+            }
+        }
+        var ff = getFunc("[object Array]");
+        var result = ff([10, 20, 30]);
+        console.log(result); //true
+
+        var ff1 = getFunc("[object Object]");
+        var dt = new Date();
+        var result1 = ff1(dt);
+        console.log(result1); //false
+
+
+
+        /* 总结:
+        Object.prototype.toString.call(对象);这个方法可以得到这个对象的类型的样子，如：[object Object]、[object Array]、[object Date]、[object Number]、[object Function]、[object Boolean]、[object Null]、[object Undefined]
+         */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-13 15:40:01
+ * @LastEditTime: 2020-07-13 15:40:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\66沙箱小案例2.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        <div>这是div</div>
+        <div>这是div</div>
+        <div>这是div</div>
+        <p>这是p</p>
+        <p>这是p</p>
+        <p>这是p</p>
+        <script>
+            var getTag = 10;
+            var dvObjs = 20;
+            var pObjs = 30;
+            //沙箱----------解决了沙箱外部与沙箱内部命名冲突的问题
+            (function () {
+                //根据标签名字获取元素
+                function getTag(tagName) {
+                    return document.getElementsByTagName(tagName)
+                }
+                //获取所有的div
+                var dvObjs = getTag("div");
+                for (var i = 0; i < dvObjs.length; i++) {
+                    dvObjs[i].style.border = "2px solid pink";
+                }
+                //获取所有的p
+                var pObjs = getTag("p");
+                for (var i = 0; i < pObjs.length; i++) {
+                    pObjs[i].style.border = "2px solid pink";
+                }
+            }());
+            console.log(getTag);
+            console.log(dvObjs);
+            console.log(pObjs);
+        </script>
+    </body>
+</body>
+
+</html>

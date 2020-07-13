@@ -1,0 +1,56 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-13 15:13:34
+ * @LastEditTime: 2020-07-13 15:34:46
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\65沙箱.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //沙箱:环境,黑盒,在一个虚拟的环境中模拟真实世界,做实验,实验结果和真实世界的结果是一样,但是不会影响真实世界
+
+
+        //例子1：
+        //沙箱---小环境
+        (function () {
+            var num = 10;
+            console.log(num); //10
+        })();
+
+        //沙箱---小环境
+        (function () {
+            var num = 20;
+            console.log(num + 10); //30
+        }());
+
+
+
+        // 例子2：
+        var num = 100;
+        (function () {
+            var num = 10;
+            console.log(num); //10
+        }());
+
+
+        console.log(num); //100
+
+        /* 总结：
+        1.一个函数的自调用就是一个沙箱，里面的变量与外部的变量是不冲突的,里面可以访问外面变量，外面访问不到里面的变量
+
+        2.每部分代码放在自己独立的沙箱里面，他们就不会发生冲突了
+         */
+    </script>
+</body>
+
+</html>

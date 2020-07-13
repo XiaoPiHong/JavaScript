@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-13 13:56:48
+ * @LastEditTime: 2020-07-13 14:00:41
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\62闭包函数小案例.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //普通的函数
+        function f1() {
+            var num = 10;
+            num++;
+            return num;
+        }
+        console.log(f1()); //11
+        console.log(f1()); //11
+        console.log(f1()); //11
+
+        //函数模式的闭包
+        function f2() {
+            var num = 10;
+            return function () { //形成了闭包，缓存了num变量
+                num++;
+                return num;
+            }
+        }
+        var ff = f2();
+        console.log(ff()); //11
+        console.log(ff()); //12
+        console.log(ff()); //13
+
+        // 总结：
+        //以后若想缓存某个数据，就将该变量放在外部函数与内部函数的中间，形成闭包
+    </script>
+</body>
+
+</html>
