@@ -1,0 +1,93 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-13 08:30:36
+ * @LastEditTime: 2020-07-13 09:08:11
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\50apply和call方法的使用.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //apply和call的使用
+        //作用:可以改变this的指向
+
+
+        // 例子1：
+        function f1(x, y) {
+            console.log((x + y) + '当前this指向是' + this);
+        }
+        f1();
+        //此时的f1实际上是当成对象来使用的,对象可以调用方法
+        ////apply和call方法也是函数的调用的方式
+        f1.apply();
+        f1.call();
+
+        f1.apply(null);
+        f1.call(null);
+
+        f1(10, 20);
+        //apply和call都可以让函数或者方法来调用,传入参数和函数自己调用的写法不一样,但是效果是一样的
+        f1.apply(null, [10, 20]);
+        f1.call(null, 10, 20);
+
+        //总结：apply和call方法中如果没有传入参数,或者是传入的是null,那么调用该方法的函数对象中的this就是默认的window
+
+
+
+
+        //===============================================================================
+
+        //例子2（函数的调用改变this的指向）：
+        function f2(x, y) {
+            console.log((x + y) + '当前this指向是' + this);
+        }
+        //obj是一个对象
+        var obj = {
+            age: 10,
+            sex: "男"
+        };
+        window.f2(10, 20); //this的指向是window
+        window.f2.apply(obj, [10, 20]); //this的指向是obj
+        window.f2.call(obj, 10, 20); //this的指向是obj
+
+        // 总结：apply和call可以改变this的指向
+
+
+
+        //===============================================================================
+        // 例子3(方法的调用改变this的指向)：
+        function Person(age, sex) {
+            this.age = age;
+            this.sex = sex;
+        }
+        //通过原型添加方法
+        Person.prototype.sayHi = function (x, y) {
+            console.log("您好啊:" + this.sex);
+            return 1000;
+        };
+        var per = new Person(10, "男");
+        per.sayHi(); //您好啊:男
+
+        function Student(name, sex) {
+            this.name = name;
+            this.sex = sex;
+        }
+        var stu = new Student("小明", "人妖");
+        var r1 = per.sayHi.apply(stu, [10, 20]); //您好啊:人妖
+        var r2 = per.sayHi.call(stu, 10, 20); //您好啊:人妖
+
+        console.log(r1);
+        console.log(r2);
+    </script>
+</body>
+
+</html>

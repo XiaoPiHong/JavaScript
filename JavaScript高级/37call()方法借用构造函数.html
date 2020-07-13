@@ -1,0 +1,37 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-12 23:07:11
+ * @LastEditTime: 2020-07-12 23:12:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\37call()方法借用构造函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        function Student(name, age, sex) {
+            //借用构造函数:属性值重复的问题
+            Person.call(this, name, age, sex);
+        }
+        //改变原型指向----继承
+        Student.prototype = new Person();
+        var stu = new Student("小黑", 20, "男");
+        console.log(stu.name, stu.age, stu.sex); //父级类别中的属性都能调用了
+    </script>
+</body>
+
+</html>
