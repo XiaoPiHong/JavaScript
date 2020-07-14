@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-14 23:12:22
+ * @LastEditTime: 2020-07-14 23:25:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\74正则表达式\07验证中文名字.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log(escape('我好帅')); //把中文变成编码
+        console.log(unescape('%u6211%u597D%u5E05')); //把编码变成中文
+    </script>
+</head>
+
+<body>
+    请输入您的名字:<input type="text" value="" id="userName" />*<br />
+    <script>
+        //是中文名字,则绿色,否则红色
+        document.getElementById("userName").onblur = function () {
+            var reg = /^[\u4e00-\u9fa5]{2,6}$/; //中文名字是两个字到6个字
+            if (reg.test(this.value)) {
+                this.style.backgroundColor = "green";
+            } else {
+                this.style.backgroundColor = "pink";
+            }
+        };
+
+
+        //[\u4e00-\u9fa5]    [一-龥]------->这里是汉字一到汉字龥
+        console.log(unescape('\u4e00')); //一
+        console.log(unescape('\u9fa5')); //龥
+    </script>
+</body>
+
+</html>
