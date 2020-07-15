@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-15 00:15:40
- * @LastEditTime: 2020-07-15 00:25:30
+ * @LastEditTime: 2020-07-15 08:16:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \前端自学资料\JavaScript\JavaScript高级\74正则表达式\09正则表达式其他的方法的使用.html
@@ -21,15 +21,16 @@
         //正则表达式中:i 表示的是忽略大小写
 
 
+        //把里面所有的数字全部显示出来
         // var str = "中国移动:10086,中国联通:10010,中国电信:10000";
-        // //把里面所有的数字全部显示出来
         // var array = str.match(/\d{5}/g);
         // console.log(array);
 
-
-        //    var str = "123123@xx.com,fangfang@valuedopinions.cn 286669312@qq.com 2、emailenglish@emailenglish.englishtown.com 286669312@qq.com...";
-        //    var array = str.match(/\w+@\w+\.\w+(\.\w+)?/g);
-        //    console.log(array);
+        //提取全部邮箱
+        // var str =
+        //     "123123@xx.com,fangfang@valuedopinions.cn 286669312@qq.com 2、emailenglish@emailenglish.englishtown.com 286669312@qq.com...";
+        // var array = str.match(/\w+@\w+\.\w+(\.\w+)?/g);
+        // console.log(array);
 
 
         //提取这里的日
@@ -39,7 +40,7 @@
         //    //正则表达式对象.$3
         //    console.log(RegExp.$3);
 
-
+        //提取邮箱的内容
         // var email = "shuaiyangtaishuaile@itcast.com.cn";
         // email.match(/([0-9a-zA-Z_.-]+)[@]([0-9a-zA-Z_-]+)(([.][a-zA-Z]+){1,2})/);
         // console.log(RegExp.$1); //shuaiyangtaishuaile
@@ -75,6 +76,35 @@
         //    var str = "HhpphH";//SSppSS
         //    str = str.replace(reg, "S");
         //    console.log(str);
+
+
+
+        //把里面所有的数字全部显示出来（用exec()方法）
+        //正则表达式对象.exec方法传入字符串(与match()方法传入的参数不同)
+        // var str = "中国移动:10086,中国联通:10010,中国电信:10000";
+        // var reg = /\d{5}/g;
+        // var array = reg.exec(str);
+        // console.log(array); //10086对象
+        // console.log(reg.exec(str)); //10010对象
+        // console.log(reg.exec(str)); //10000对象
+        // console.log(reg.exec(str)); //null
+        // console.log(reg.exec(str)); //10086对象
+        // console.log(reg.exec(str)); //10010对象
+
+
+
+        // var str = "中国移动:10086,中国联通:10010,中国电信:10000";
+        // var reg = /\d{5}/g;
+        // //通过正则表达式匹配这个字符串
+        // var array = reg.exec(str);
+        // while (array != null) {
+        //     //输出匹配的内容
+        //     console.log(array[0]);
+        //     array = reg.exec(str);
+        // }
+
+
+        // 总结正则表达式的exec()方法：结果如果有多个匹配对象，要循环遍历才能拿出这些对象，如果输出完最后一个对象后继续输出，那么结果就是null，如果输出null后再继续输出，那么结果就是从这些对象的第一个开始重新再输出
     </script>
 </body>
 

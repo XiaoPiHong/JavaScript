@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-15 08:28:18
+ * @LastEditTime: 2020-07-15 08:35:41
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端自学资料\JavaScript\JavaScript高级\75真数组还是伪数组.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //伪数组和数组的区别
+        //真数组的长度是可变的
+        //伪数组的长度不可变
+        //真数组可以使用数组中的方法
+        //伪数组不可以使用数组中的方法
+
+        var arr = [10, 20, 30];
+        arr.forEach(function () {
+            console.log('arr对象能调用数组的forEach方法')
+        });
+
+
+
+        //arguments得到的是实参的个数及实参的每个值
+        f1(10, 20, 30, 40);
+
+        function f1() {
+            var sum = 0;
+            arguments.forEach(function () {
+                'arguments对象不能调用数组的forEach方法'
+            });
+        }
+
+
+        // 总结：数组实例对象的__proto__  ----指向---->  Array的prototype，所以真数组才能使用数组中的方法
+    </script>
+</body>
+
+</html>
