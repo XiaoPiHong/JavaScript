@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-05 17:09:29
- * @LastEditTime: 2020-03-05 18:03:51
+ * @LastEditTime: 2020-07-24 15:10:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\67.基本包装类型.html
@@ -37,7 +37,7 @@
         console.log(str);*/
         // 例子2
         var str = "hello";
-        str = str.replace("ll", "HH");//因为调用了方法，所以变成了基本包装类型对象
+        str = str.replace("ll", "HH"); //因为调用了方法，所以变成了基本包装类型对象
         console.log(str);
         // 例子3
         /*var num = 10;//现在是基本类型(number型)
@@ -61,7 +61,7 @@
 
         // 注意3
         // var num = 10;
-        // var num2 = Number("10");//转换,没有new---类型转换（基本类型）
+        // var num2 = Number("10");//转换,没有new---即没有类型转换，（基本类型）
         // var num3 = new Number("10");//基本包装类型
 
 
@@ -72,8 +72,8 @@
 
         //后来因为调用了方法，变成：
         var str = new String("hello");
-        str = str.replace("ll", "HH");//就是这里调用了方法
-        str = null;//释放内存
+        str = str.replace("ll", "HH"); //就是这里调用了方法
+        str = null; //释放内存
     </script>
 </body>
 
