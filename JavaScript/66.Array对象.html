@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-05 14:14:46
- * @LastEditTime: 2020-03-06 09:59:05
+ * @LastEditTime: 2020-07-26 17:26:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\66.Array对象.html
@@ -38,6 +38,8 @@
         .arr.slice(开始的索引,结束的索引);把截取的数组的值放在一个新的数组中,但是不包含结束的索引对应的元素值
         .splice(开始的位置,要删除的个数,替换的元素的值);一般是用于删除数组中的元素,或者是替换元素,或者是插入元素
         返回的是被删除元素的数组，如果有被删除，则返回被删除的元素数组，如果没用则返回空数组
+        .some(函数);返回的是布尔类型的值，函数作为参数使用，函数中有三个参数，第一个参数是数组当前项的值，第二个参数是数组当前项的索引，第三个参数是数组对象本身（没用）
+        方法用于检测数组中的元素是否满足指定条件(查找数组中是否有满足条件的元素) ,如果找到第一个满足条件的元素,返回true,终止循环不再继续查找，没有满足条件的返回false
         */
 
 
@@ -48,23 +50,23 @@
         //1.求数组长度(.length)，也可以用于清空数组的元素
         //首先要创建一个数组对象
         //var arr = new Array();//构造函数方式
-        var arr = [1, 2, 3];//字面量方式
-        console.log(arr.length);//3
+        var arr = [1, 2, 3]; //字面量方式
+        console.log(arr.length); //3
 
-        arr.length = 0;//清空数组的元素
-        console.log(arr);//一个空数组
+        arr.length = 0; //清空数组的元素
+        console.log(arr); //一个空数组
 
 
 
         //===================================Array的方法
         //1.Array.isArray(对象)//静态方法
         var arr1 = [];
-        console.log(Array.isArray(arr1));//true
+        console.log(Array.isArray(arr1)); //true
 
         //2..concat(数组,数组,数组,...)
         var arr2 = [1, 2, 3];
         var arr3 = [4, 5, 6];
-        console.log(arr2.concat(arr3));//一个[1,2,3,4,5,6]的新数组
+        console.log(arr2.concat(arr3)); //一个[1,2,3,4,5,6]的新数组
 
         //3..every(函数)
         // 例子1
@@ -72,9 +74,9 @@
         //a----: 元素的值
         //b----: 索引的值
         //c----:谁调用了这个方法,那么c就是谁---->arr
-        var flag = arr.every(function (a, b, c) {//这了也可以只写两个参数
-            console.log(a + "===" + b + "===" + c);//这里输出是为了看到a，b，c分别是什么
-            return a > 2000;//数组中的每个元素的值都要大于2000的情况,最后才返回true
+        var flag = arr.every(function (a, b, c) { //这了也可以只写两个参数
+            console.log(a + "===" + b + "===" + c); //这里输出是为了看到a，b，c分别是什么
+            return a > 2000; //数组中的每个元素的值都要大于2000的情况,最后才返回true
         });
 
         // 例子2
@@ -83,38 +85,38 @@
             //数组中的每个元素的长度是不是大于4
             return ele.length > 4;
         });
-        console.log(flag);//false
+        console.log(flag); //false
 
         // 扩展：判断一个函数作为参数需要多少个参数
         var arr5 = [1, 2, 3, 4, 555, 66, 4];
         arr5.every(function () {
-            console.log(arguments.length);//3
+            console.log(arguments.length); //3
         });
 
         //4..filter(函数)
         var arr6 = [10, 20, 30, 40, 50, 60, 70, 80];
-        var newArr = arr6.filter(function (ele) {//ele（参数）---每个元素，可以填三个参数，这里只填了一个
+        var newArr = arr6.filter(function (ele) { //ele（参数）---每个元素，可以填三个参数，这里只填了一个
             return ele > 40;
         });
-        console.log(newArr);//一个新数组[50，60，70，80]
+        console.log(newArr); //一个新数组[50，60，70，80]
 
         //5..push(值)
         var arr7 = [10, 20, 30, 40, 50, 60, 70, 80];
-        console.log(arr7.push(90));//9     因为该方法的返回值是增加元素后数组的长度
-        console.log(arr7);//一个新数组[10, 20, 30, 40, 50, 60, 70, 80, 90]
+        console.log(arr7.push(90)); //9     因为该方法的返回值是增加元素后数组的长度
+        console.log(arr7); //一个新数组[10, 20, 30, 40, 50, 60, 70, 80, 90]
 
         //6..pop()
         var arr8 = [1, 23, 4];
-        console.log(arr8.pop());//1    因为该方法返回的是被删除的这个元素（数组的最后一个元素）
-        console.log(arr8);//一个新数组[1, 23]
+        console.log(arr8.pop()); //1    因为该方法返回的是被删除的这个元素（数组的最后一个元素）
+        console.log(arr8); //一个新数组[1, 23]
 
         //7..shift()
         // 与6类似，不过删除的是数组的第一个元素
 
         //8..unshift();
         var arr9 = [1, 2, 3];
-        console.log(arr9.unshift(4));//4,因为返回值是插入后数组的长度
-        console.log(arr9);//一个新数组[4, 1, 2, 3]
+        console.log(arr9.unshift(4)); //4,因为返回值是插入后数组的长度
+        console.log(arr9); //一个新数组[4, 1, 2, 3]
 
         //9..forEach(函数)--->相当于遍历数组
         var arr10 = [1, 2, 3, 4];
@@ -124,18 +126,18 @@
 
         //10..join("字符串")
         var arr11 = ["小白", "小黑", "小红", "小芳", "小绿", "小苏"];
-        console.log(arr11.join("|"));//小白|小黑|小红|小芳|小绿|小苏
+        console.log(arr11.join("|")); //小白|小黑|小红|小芳|小绿|小苏
 
         //11..map(函数)
         var arr12 = [4, 9, 16];
         var newArr = arr12.map(function (ele) {
             return ele > 1;
         });
-        console.log(newArr);//一个新数组[true,true,true]
+        console.log(newArr); //一个新数组[true,true,true]
 
         //12..reverse()
         var arr13 = [4, 9, 16];
-        console.log(arr13.reverse());//一个新数组[16,9,4]
+        console.log(arr13.reverse()); //一个新数组[16,9,4]
 
         //13..sort()------>在CDN中有里面函数的排序的方式，这里是升序写法
         var arr14 = [1, 40, 20, 10, 100];
@@ -148,21 +150,28 @@
                 return -1;
             }
         });
-        console.log(arr14);//一个新数组[1, 10, 20, 40, 100]
+        console.log(arr14); //一个新数组[1, 10, 20, 40, 100]
 
         //14..arr.slice(开始的索引,结束的索引)--->不包含结束索引的元素
         var arr15 = [1, 2, 3, 4, 5, 6];
-        console.log(arr15.slice(1, 5));//一个新数组[2,3,4,5]
-        console.log(arr15.slice(1));//[2, 3, 4, 5, 6],要是写一个参数，则为开始索引到最后的新数组
+        console.log(arr15.slice(1, 5)); //一个新数组[2,3,4,5]
+        console.log(arr15.slice(1)); //[2, 3, 4, 5, 6],要是写一个参数，则为开始索引到最后的新数组
 
         //15..splice(开始的位置,要删除的个数,替换的元素的值)
         var arr16 = [1, 2, 3, 4, 5, 6];
         //这里是在下标为1的元素前面加一个元素9，删除0个元素
-        console.log(arr16.splice(1, 0, 9));//返回一个空数组，因为没有元素被删除
-        console.log(arr16);//[1, 9, 2, 3, 4, 5, 6]
+        console.log(arr16.splice(1, 0, 9)); //返回一个空数组，因为没有元素被删除
+        console.log(arr16); //[1, 9, 2, 3, 4, 5, 6]
         //这里是在0下标元素开始位置删除3个元素，用元素8替换
-        console.log(arr16.splice(0, 3, 8));//[1,9,2]
-        console.log(arr16);//[8, 3, 4, 5, 6]
+        console.log(arr16.splice(0, 3, 8)); //[1,9,2]
+        console.log(arr16); //[8, 3, 4, 5, 6]
+
+        //16..some(函数)
+        var arr17 = [1, 2, 3];
+        var res17 = arr17.some(function (ele) { //ele（参数）---每个元素，可以填三个参数，这里只填了一个)
+            return ele = 2;
+        });
+        console.log(res17);
     </script>
 </body>
 
